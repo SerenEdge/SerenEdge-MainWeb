@@ -8,27 +8,17 @@ export function useTheme() {
   const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    const stored = localStorage.getItem("serenedge-theme") as Theme | null;
-    const preferred = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-    const initial = stored ?? preferred;
+    const stored = localStorage.getItem("se-theme") as Theme | null;
+    const initial = stored ?? "dark";
     setTheme(initial);
-    applyTheme(initial);
+    document.documentElement.setAttribute("data-theme", initial);
   }, []);
-
-  function applyTheme(t: Theme) {
-    const html = document.documentElement;
-    if (t === "light") {
-      html.classList.add("light");
-    } else {
-      html.classList.remove("light");
-    }
-    localStorage.setItem("serenedge-theme", t);
-  }
 
   function toggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";
     setTheme(next);
-    applyTheme(next);
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("se-theme", next);
   }
 
   return { theme, toggle };

@@ -1,81 +1,75 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Cursor } from "@/components/ui/Cursor";
+import { TimeGreeting } from "@/components/ui/TimeGreeting";
+import { KonamiModal } from "@/components/ui/KonamiModal";
+import { Toast } from "@/components/ui/Toast";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-accent",
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "SerenEdge — IT Solutions That Actually Solve Problems",
+  title: "SerenEdge — Engineering solutions at the edge of what's possible",
   description:
-    "SerenEdge builds web applications, IoT systems, automation pipelines, ML models, and everything in between. Give us your hardest IT problem.",
-  keywords: ["IT solutions", "web development", "IoT", "automation", "machine learning", "SerenEdge"],
+    "SerenEdge is a small, deeply technical IT studio. We take on the problems other shops won't — web platforms, IoT, automation, custom systems, ML — and ship them end-to-end.",
+  keywords: ["IT solutions", "web development", "IoT", "automation", "machine learning", "SerenEdge", "Sri Lanka"],
   openGraph: {
-    title: "SerenEdge — IT Solutions That Actually Solve Problems",
-    description: "We solve IT problems. Any of them.",
-    url: "https://serenedge.com",
+    title: "SerenEdge — Engineering solutions at the edge of what's possible",
+    description: "Give us any IT problem. We will solve it.",
     siteName: "SerenEdge",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "SerenEdge — IT Solutions",
-    description: "We solve IT problems. Any of them.",
-  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      data-theme="dark"
+      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${syne.variable}`}
       suppressHydrationWarning
     >
       <head>
         {/* Prevent FOUC — apply saved theme before first paint */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('serenedge-theme');
-                  if (theme === 'light') document.documentElement.classList.add('light');
-                } catch(e) {}
-              })();
-            `,
+            __html: `(function(){try{var t=localStorage.getItem('se-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
           }}
         />
       </head>
-      <body className="noise">
+      <body>
+        <div className="grid-bg" aria-hidden="true" />
         <SmoothScrollProvider>
           <Navbar />
           {children}
           <Footer />
         </SmoothScrollProvider>
+        <Cursor />
+        <TimeGreeting />
+        <KonamiModal />
+        <Toast />
       </body>
     </html>
   );

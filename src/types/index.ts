@@ -1,36 +1,49 @@
 export interface Service {
   id: string;
-  icon: string;
+  num: string;
   title: string;
-  tagline: string;
-  capabilities: string[];
-  color: string;
+  titleAccent: string;
+  description: string;
+  tags: string[];
+  footer: string;
+  glyph: string;
+  dashed?: boolean;
+}
+
+export interface ProcessStep {
+  id: string;
+  num: string;
+  label: string;
+  labelAccent: string;
+  headline: string;
+  headlineAccent: string;
+  body: string;
+  meta: { label: string; value: string }[];
+  glyph: string;
 }
 
 export interface Project {
   id: string;
+  num: string;
+  category: string;
+  badge: string;
+  badgeLive?: boolean;
   title: string;
-  description: string;
-  image: string;
+  titleAccent: string;
+  body: string;
   tags: string[];
-  tech: string[];
-  link?: string;
-  github?: string;
+  featured?: boolean;
+  hasVisual?: boolean;
 }
 
 export interface TechItem {
   name: string;
   icon: string;
-  category: string;
 }
 
-export interface ProcessStep {
-  number: string;
-  title: string;
-  description: string;
-}
-
-export interface NavLink {
-  label: string;
-  href: string;
+export interface Testimonial {
+  initials: string;
+  quote: string;
+  name: string;
+  role: string;
 }
