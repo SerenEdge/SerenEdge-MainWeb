@@ -14,8 +14,7 @@ const navLinks = [
 
 export function Navbar() {
   const { theme, toggle } = useTheme();
-  const [scrolled, setScrolled]     = useState(false);
-  const [unlocked, setUnlocked]     = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const logoClicksRef = useRef(0);
   const timerRef      = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
@@ -31,7 +30,6 @@ export function Navbar() {
     timerRef.current = setTimeout(() => { logoClicksRef.current = 0; }, 1500);
     if (logoClicksRef.current >= 5) {
       logoClicksRef.current = 0;
-      setUnlocked(true);
       showToast("⚡ Passion mode unlocked. We were always like this.");
     }
   }
@@ -40,7 +38,7 @@ export function Navbar() {
     <header className={`nav${scrolled ? " scrolled" : ""}`}>
       {/* Logo */}
       <div
-        className={`logo${unlocked ? " unlocked" : ""}`}
+        className="logo"
         onClick={handleLogoClick}
         title="Click me 5 times…"
         role="button"
@@ -52,7 +50,6 @@ export function Navbar() {
             <path d="M3 12 L9 6 L9 18 Z" fill="currentColor" stroke="none" />
             <path d="M21 12 L15 6 L15 18 Z" />
           </svg>
-          <span className="logo-pulse" aria-hidden="true" />
         </div>
         <span className="logo-text">
           Seren<em>Edge</em>

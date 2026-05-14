@@ -5,7 +5,6 @@ import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Cursor } from "@/components/ui/Cursor";
-import { TimeGreeting } from "@/components/ui/TimeGreeting";
 import { KonamiModal } from "@/components/ui/KonamiModal";
 import { Toast } from "@/components/ui/Toast";
 
@@ -67,7 +66,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </SmoothScrollProvider>
         <Cursor />
-        <TimeGreeting />
         <KonamiModal />
         <Toast />
       </body>
