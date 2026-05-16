@@ -28,7 +28,7 @@ export function Contact() {
           </div>
           <div className="ci-row">
             <span className="label">// based</span>
-            <span className="value">Colombo, Sri Lanka · GMT+5:30</span>
+            <span className="value">Sri Lanka · GMT+5:30</span>
           </div>
           <div className="ci-row">
             <span className="label">// availability</span>

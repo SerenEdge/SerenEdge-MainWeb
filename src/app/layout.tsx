@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Cursor } from "@/components/ui/Cursor";
 import { KonamiModal } from "@/components/ui/KonamiModal";
+import { ContactModal } from "@/components/ui/ContactModal";
 import { Toast } from "@/components/ui/Toast";
 
 const spaceGrotesk = Space_Grotesk({
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </SmoothScrollProvider>
         <Cursor />
         <KonamiModal />
+        <ContactModal />
         <Toast />
       </body>
     </html>

@@ -1,42 +1,70 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { processSteps } from "@/data/process";
 
 export function Process() {
-  const flowRef  = useRef<HTMLDivElement>(null);
-  const spineRef = useRef<HTMLDivElement>(null);
+  const stepsRef = useRef<HTMLDivElement>(null);
 
-  /* Spine fill + row reveal via IntersectionObserver */
   useEffect(() => {
-    const flow  = flowRef.current;
-    const spine = spineRef.current;
-    if (!flow || !spine) return;
+    const container = stepsRef.current;
+    if (!container) return;
 
-    const updateSpine = () => {
-      const r    = flow.getBoundingClientRect();
-      const vh   = window.innerHeight;
-      const pct  = Math.max(0, Math.min(1, Math.max(0, vh * 0.5 - r.top) / r.height));
-      spine.style.setProperty("--spine", (pct * 100).toFixed(1) + "%");
-    };
-    updateSpine();
-    window.addEventListener("scroll", updateSpine, { passive: true });
-    window.addEventListener("resize", updateSpine);
+    const rows = container.querySelectorAll<HTMLElement>(".ps-row");
+    const timelines: gsap.core.Timeline[] = [];
 
-    const rows = flow.querySelectorAll<HTMLElement>(".pf-row");
+    rows.forEach((row) => {
+      const line = row.querySelector<HTMLElement>(".ps-line");
+      const num  = row.querySelector<HTMLElement>(".ps-num");
+      const body = row.querySelector<HTMLElement>(".ps-body");
+      const meta = row.querySelector<HTMLElement>(".ps-meta");
+      if (!line || !num || !body || !meta) return;
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: row,
+          start: "top 85%",
+          once: true,
+          onEnter: () => row.classList.add("in"),
+        },
+      });
+
+      tl.fromTo(line,
+          { scaleX: 0, transformOrigin: "left center" },
+          { scaleX: 1, duration: 1, ease: "expo.out" }
+        )
+        .fromTo(num,
+          { clipPath: "inset(0 0 100% 0)" },
+          { clipPath: "inset(0 0 0% 0)", duration: 0.75, ease: "expo.out" },
+          "-=0.55"
+        )
+        .fromTo(body,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.95, ease: "expo.out" },
+          "-=0.6"
+        )
+        .fromTo(meta,
+          { x: 28, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.8, ease: "expo.out" },
+          "-=0.7"
+        );
+
+      timelines.push(tl);
+    });
+
+    /* Active step — highlight whichever row occupies the center band */
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
-          e.target.classList.toggle("in", e.isIntersecting);
-        });
+        entries.forEach((e) => e.target.classList.toggle("active", e.isIntersecting));
       },
-      { threshold: 0.3, rootMargin: "-10% 0px -10% 0px" }
+      { rootMargin: "-35% 0px -35% 0px", threshold: 0 }
     );
     rows.forEach((r) => io.observe(r));
 
+    ScrollTrigger.refresh();
     return () => {
-      window.removeEventListener("scroll", updateSpine);
-      window.removeEventListener("resize", updateSpine);
+      timelines.forEach((t) => t.kill());
       io.disconnect();
     };
   }, []);
@@ -56,77 +84,32 @@ export function Process() {
         </p>
       </div>
 
-      <div className="process-flow" ref={flowRef}>
-        <div className="pf-spine" ref={spineRef} aria-hidden="true" />
-
-        {processSteps.map((step, idx) => {
-          const reversed = idx % 2 !== 0;
-          return (
-            <article key={step.id} className={`pf-row${reversed ? " pf-rev" : ""}`}>
-              {reversed ? (
-                <>
-                  <div className="pf-side pf-content-cell">
-                    <StepContent step={step} />
-                  </div>
-                  <div className="pf-dot" aria-hidden="true" />
-                  <div className="pf-side pf-vis-cell">
-                    <StepVis step={step} />
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="pf-side pf-vis-cell">
-                    <StepVis step={step} />
-                  </div>
-                  <div className="pf-dot" aria-hidden="true" />
-                  <div className="pf-side pf-content-cell">
-                    <StepContent step={step} />
-                  </div>
-                </>
-              )}
-            </article>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
-function StepContent({ step }: { step: (typeof processSteps)[number] }) {
-  return (
-    <>
-      <div className="pf-label">
-        {step.label}
-        <em>{step.labelAccent}</em>
-      </div>
-      <h3>
-        {step.headline} <em>{step.headlineAccent}</em>
-      </h3>
-      <p>{step.body}</p>
-      <dl className="pf-meta">
-        {step.meta.map((m) => (
-          <div key={m.label}>
-            <dt>{m.label}</dt>
-            <dd>{m.value}</dd>
+      <div className="process-steps" ref={stepsRef}>
+        {processSteps.map((step) => (
+          <div key={step.id} className="ps-row">
+            <div className="ps-line" />
+            <div className="ps-num">{step.num}</div>
+            <div className="ps-body">
+              <div className="ps-tag">
+                <span>{step.label}</span>
+                <em>{step.labelAccent}</em>
+              </div>
+              <h3>
+                {step.headline} <em>{step.headlineAccent}</em>
+              </h3>
+              <p>{step.body}</p>
+            </div>
+            <dl className="ps-meta">
+              {step.meta.map((m) => (
+                <div key={m.label}>
+                  <dt>{m.label}</dt>
+                  <dd>{m.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         ))}
-      </dl>
-    </>
-  );
-}
-
-function StepVis({ step }: { step: (typeof processSteps)[number] }) {
-  return (
-    <div className="pf-vis">
-      <span className="pf-num">{step.num}</span>
-      <svg
-        viewBox="0 0 200 200"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        style={{ color: "var(--accent)" }}
-        dangerouslySetInnerHTML={{ __html: step.glyph }}
-      />
-    </div>
+      </div>
+    </section>
   );
 }

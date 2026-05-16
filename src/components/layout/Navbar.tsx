@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/hooks/useTheme";
 import { showToast } from "@/lib/toast";
+import { openContactModal } from "@/lib/contact";
 
 const navLinks = [
   { idx: "01", label: "Services", href: "#services" },
@@ -84,10 +85,10 @@ export function Navbar() {
             </svg>
           )}
         </button>
-        <a href="#contact" className="btn btn-primary">
+        <button className="btn btn-primary" onClick={openContactModal}>
           <span className="dot" />
           Start a project
-        </a>
+        </button>
       </div>
     </header>
   );

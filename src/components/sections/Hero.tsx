@@ -81,7 +81,7 @@ export function Hero() {
       <div className="hero-meta">
         <div className="col">
           <strong>Based</strong>
-          <span>Colombo, Sri Lanka · GMT+5:30</span>
+          <span>Sri Lanka · GMT+5:30</span>
         </div>
         <div className="col">
           <strong>Stack-agnostic</strong>
