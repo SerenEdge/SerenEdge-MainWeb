@@ -261,7 +261,7 @@ section { position: relative; padding: 120px 40px; }
   color: var(--text-2); letter-spacing: 0.04em;
   display: flex; align-items: center; gap: 10px;
 }
-.section-label::before { content: ''; width: 22px; height: 1px; background: var(--accent); }
+.section-label::before { content: '∞'; width: auto; height: auto; background: none; color: var(--accent); font-size: 15px; line-height: 1; }
 .section-title {
   font-size: clamp(38px, 5vw, 78px); font-weight: 500;
   line-height: 1; letter-spacing: -0.03em; margin-top: 14px;
