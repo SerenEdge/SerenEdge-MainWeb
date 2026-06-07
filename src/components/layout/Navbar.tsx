@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { useTheme } from "@/hooks/useTheme";
 import { showToast } from "@/lib/toast";
 import { openContactModal } from "@/lib/contact";
@@ -15,6 +16,7 @@ const navLinks = [
 
 export function Navbar() {
   const { theme, toggle } = useTheme();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const logoClicksRef = useRef(0);
@@ -51,7 +53,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className={`nav${scrolled ? " scrolled" : ""}${!scrolled && theme === "light" ? " at-top" : ""}${menuOpen ? " menu-open" : ""}`}>
+      <header className={`nav${scrolled ? " scrolled" : ""}${!scrolled && theme === "light" && pathname === "/" ? " at-top" : ""}${menuOpen ? " menu-open" : ""}`}>
         {/* Left — desktop nav links */}
         <nav className="nav-links">
           {navLinks.map((link) => (
