@@ -85,7 +85,7 @@ export function Navbar() {
             aria-label="Back to home"
           >
             <span className="nl-back-arr">←</span>
-            Home
+            Back
           </button>
         </nav>
 
@@ -147,7 +147,7 @@ export function Navbar() {
               onClick={() => { setMenuOpen(false); router.push("/"); }}
             >
               <span className="ol-idx">←</span>
-              <span className="ol-label">Home</span>
+              <span className="ol-label">Back</span>
             </button>
           ) : (
             navLinks.map((link, i) => (
