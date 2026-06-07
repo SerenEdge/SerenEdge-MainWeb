@@ -46,15 +46,12 @@ export function Navbar() {
         tabIndex={0}
         onKeyDown={(e) => e.key === "Enter" && handleLogoClick()}
       >
-        <div className="logo-mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3 12 L9 6 L9 18 Z" fill="currentColor" stroke="none" />
-            <path d="M21 12 L15 6 L15 18 Z" />
-          </svg>
-        </div>
-        <span className="logo-text">
-          Seren<em>Edge</em>
-        </span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={theme === "light" ? "/Base%20Logo%20-%20Dark.png" : "/Base%20Logo%20-%20Light.png"}
+          alt="SerenEdge"
+          className="logo-img"
+        />
       </div>
 
       {/* Desktop nav links */}
