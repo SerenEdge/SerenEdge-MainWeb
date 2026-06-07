@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
-import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { Cursor } from "@/components/ui/Cursor";
 import { KonamiModal } from "@/components/ui/KonamiModal";
 import { ContactModal } from "@/components/ui/ContactModal";
@@ -133,11 +130,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <div className="grid-bg" aria-hidden="true" />
-        <SmoothScrollProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </SmoothScrollProvider>
+        {children}
         <Cursor />
         <KonamiModal />
         <ContactModal />
