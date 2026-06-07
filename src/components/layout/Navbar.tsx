@@ -55,10 +55,7 @@ export function Navbar() {
         {/* Left — desktop nav links */}
         <nav className="nav-links">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href}>
-              <span className="idx">{link.idx}</span>
-              {link.label}
-            </a>
+            <a key={link.href} href={link.href}>{link.label}</a>
           ))}
         </nav>
 

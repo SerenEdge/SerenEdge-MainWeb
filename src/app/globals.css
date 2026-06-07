@@ -132,21 +132,23 @@ main { position: relative; z-index: 1; }
 }
 .logo-img { height: 44px; width: auto; display: block; }
 
-.nav-links { display: flex; gap: 28px; }
+.nav-links { display: flex; flex-direction: column; gap: 1px; }
 .nav-links a {
-  position: relative; color: var(--text-2); transition: color .2s ease;
+  position: relative; display: inline-block;
+  font-size: 11px; letter-spacing: 0.02em;
+  color: var(--text-3); padding-left: 0;
+  transition: color .25s ease, padding-left .3s cubic-bezier(.4,0,.2,1);
 }
 .nav-links a::before {
-  content: ''; position: absolute; left: 0; bottom: -4px;
-  width: 100%; height: 1px; background: var(--accent);
-  transform: scaleX(0); transform-origin: right; transition: transform .35s cubic-bezier(.7,0,.3,1);
+  content: '';
+  position: absolute; left: 0; top: 50%;
+  width: 10px; height: 1px; background: var(--accent);
+  transform: translateY(-50%) scaleX(0); transform-origin: left center;
+  transition: transform .3s cubic-bezier(.4,0,.2,1);
 }
-.nav-links a:hover { color: var(--text); }
-.nav-links a:hover::before { transform: scaleX(1); transform-origin: left; }
-.nav-links a .idx {
-  display: inline-block; margin-right: 6px; color: var(--text-3);
-  font-size: 10px; vertical-align: top;
-}
+.nav-links a:hover { color: var(--text); padding-left: 16px; }
+.nav-links a:hover::before { transform: translateY(-50%) scaleX(1); }
+.nav-links a .idx { display: none; }
 
 .nav-cta { justify-self: end; display: flex; align-items: center; gap: 12px; }
 
@@ -158,9 +160,9 @@ main { position: relative; z-index: 1; }
 .theme-toggle:hover { border-color: var(--accent); transform: rotate(20deg); color: var(--text); }
 .theme-toggle svg { width: 14px; height: 14px; }
 
-/* Menu toggle button */
+/* Menu toggle button — mobile only */
 .btn-menu {
-  display: inline-flex; align-items: center; gap: 10px;
+  display: none; align-items: center; gap: 10px;
   padding: 8px 16px 8px 18px; border-radius: 100px;
   border: 1px solid var(--border-2); font-size: 13px;
   font-family: var(--font-mono), monospace; color: var(--text-2);
@@ -799,7 +801,8 @@ section { position: relative; padding: 120px 40px; }
   .stack-grid { grid-template-columns: repeat(3, 1fr); }
   .hero-sub { grid-template-columns: 1fr; }
   .nav-links { display: none; }
-  .nav { grid-template-columns: auto auto; }
+  .btn-menu { display: inline-flex; }
+  .nav { grid-template-columns: 1fr auto; }
   .logo { justify-self: start; }
   .nav-overlay-foot { padding: 0 24px; left: 0; right: 0; }
 }
