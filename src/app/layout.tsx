@@ -48,14 +48,6 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   alternates: { canonical: "https://serenedge.com" },
-  icons: {
-    icon: [
-      { url: "/icons/Base%20Logo%20-%20Dark.ico",  media: "(prefers-color-scheme: light)" },
-      { url: "/icons/Base%20Logo%20-%20Light.ico", media: "(prefers-color-scheme: dark)"  },
-    ],
-    shortcut: "/icons/Base%20Logo%20-%20Dark.ico",
-    apple:    "/icons/Base%20Logo%20-%20Light.ico",
-  },
   manifest: "/site.webmanifest",
   openGraph: {
     title:       "SerenEdge — For each node.",
@@ -74,6 +66,10 @@ export const metadata: Metadata = {
   },
 };
 
+/* Favicon paths — no %20 encoding, raw spaces work fine as link href values */
+const ICON_DARK  = "/icons/Base Logo - Dark.ico";   /* use on light theme */
+const ICON_LIGHT = "/icons/Base Logo - Light.ico";  /* use on dark theme  */
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -83,10 +79,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
-        {/* Prevent FOUC — apply saved theme before first paint */}
+        {/*
+          Single favicon link — id lets the FOUC script and FaviconSync both
+          target it directly, avoiding conflicts with any media-query based links.
+          Default to dark-theme icon (light icon on dark bg).
+        */}
+        <link id="app-favicon" rel="icon" type="image/x-icon" href={ICON_LIGHT} />
+
+        {/*
+          FOUC prevention: apply saved theme + immediately correct the favicon
+          before first paint so there is no flash on either theme.
+        */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('se-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
+            __html: `(function(){
+  try {
+    var t = localStorage.getItem('se-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    var dark = (t || 'dark') !== 'light';
+    var f = document.getElementById('app-favicon');
+    if (f) f.href = dark ? '${ICON_LIGHT}' : '${ICON_DARK}';
+  } catch(e) {}
+})();`,
           }}
         />
       </head>
