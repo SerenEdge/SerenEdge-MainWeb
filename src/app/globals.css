@@ -126,6 +126,15 @@ main { position: relative; z-index: 1; }
 }
 .nav.menu-open { background: transparent; border-bottom-color: transparent; }
 
+/* Light mode at hero top — white nav over dark hero image */
+.nav.at-top .nav-links a         { color: rgba(255,255,255,0.72); }
+.nav.at-top .nav-links a:hover   { color: #fff; }
+.nav.at-top .theme-toggle        { color: rgba(255,255,255,0.72); border-color: rgba(255,255,255,0.22); }
+.nav.at-top .theme-toggle:hover  { color: #fff; border-color: rgba(255,255,255,0.5); }
+.nav.at-top .btn                 { color: rgba(255,255,255,0.82); border-color: rgba(255,255,255,0.28); }
+.nav.at-top .btn:hover           { color: #fff; border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.1); }
+.nav.at-top .btn-menu            { color: rgba(255,255,255,0.82); border-color: rgba(255,255,255,0.28); }
+
 .logo {
   justify-self: center;
   display: flex; align-items: center; cursor: pointer; user-select: none;
