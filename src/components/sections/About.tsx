@@ -50,7 +50,7 @@ export function About() {
           <ul>
             [
               { year: "Feb 2026", item: "SerenEdge founded", sub: "Daham Dissanayake · day one · building in public" },
-              { year: "2026", item: "SoterCare in development", sub: "first active project · Healthcare IoT" },
+              { year: "Sep 2025", item: "SoterCare in development", sub: "first active project · Healthcare IoT" },
               { year: "next", item: "Yours?", sub: "reach out below" },
             ].map((e) => (
               <li key={e.year + e.item}>
