@@ -8,7 +8,7 @@ export function Projects() {
     <section className="projects-section" id="work">
       <div className="section-head">
         <div>
-          <div className="section-label">03 / Active projects</div>
+          <div className="section-label">Active projects</div>
           <h2 className="section-title">
             Currently <em>undergoing.</em>
           </h2>

@@ -46,7 +46,7 @@ export function Services() {
     <section className="services-section" id="services">
       <div className="section-head">
         <div>
-          <div className="section-label">01 / Services</div>
+          <div className="section-label">Services</div>
           <h2 className="section-title">
             Six disciplines.<br />One <em>continuous</em> team.
           </h2>

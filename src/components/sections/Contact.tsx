@@ -4,7 +4,7 @@ export function Contact() {
       <div className="contact-grid">
         <div>
           <div className="section-label" style={{ marginBottom: 20 }}>
-            05 / Get in touch
+            Get in touch
           </div>
           <h2>
             Tell us the <em>problem.</em>

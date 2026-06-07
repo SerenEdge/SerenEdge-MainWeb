@@ -3,7 +3,7 @@ export function About() {
     <section className="about-section" id="about">
       <div className="section-head">
         <div>
-          <div className="section-label">04 / Who we are</div>
+          <div className="section-label">Who we are</div>
           <h2 className="section-title">
             Not one lane. <em>Every node.</em>
           </h2>

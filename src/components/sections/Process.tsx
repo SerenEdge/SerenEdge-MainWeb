@@ -73,7 +73,7 @@ export function Process() {
     <section className="process-section" id="process">
       <div className="section-head">
         <div>
-          <div className="section-label">02 / How we work</div>
+          <div className="section-label">How we work</div>
           <h2 className="section-title">
             From &ldquo;what if&rdquo; to <em>in production</em>, in four steps.
           </h2>
