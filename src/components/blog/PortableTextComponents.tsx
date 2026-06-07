@@ -23,6 +23,8 @@ export const portableTextComponents: PortableTextComponents = {
         </figure>
       )
     },
+    // Silently skip any block type we don't recognise
+    unknownType: () => null,
   },
   marks: {
     code: ({ children }) => <code className="blog-code-inline">{children}</code>,
@@ -38,6 +40,7 @@ export const portableTextComponents: PortableTextComponents = {
     ),
   },
   block: {
+    h1: ({ children }) => <h2 className="blog-h2">{children}</h2>,
     h2: ({ children }) => <h2 className="blog-h2">{children}</h2>,
     h3: ({ children }) => <h3 className="blog-h3">{children}</h3>,
     h4: ({ children }) => <h4 className="blog-h4">{children}</h4>,

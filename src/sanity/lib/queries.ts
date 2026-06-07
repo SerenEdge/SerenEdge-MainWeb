@@ -1,17 +1,22 @@
+// Handles both our custom schema and the sanity-init schema:
+// - author may be a string or a reference → coalesce(author->name, author)
+// - coverImage may be coverImage or mainImage
+// - category may be a string or categories[] references
+
 export const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
   _id,
   title,
   "slug": slug.current,
   publishedAt,
   excerpt,
-  category,
-  author,
+  "category": coalesce(category, categories[0]->title),
+  "author": coalesce(author->name, author),
   readTime,
   tags,
-  coverImage {
-    asset->{ url, metadata { dimensions, lqip } },
-    alt
-  }
+  "coverImage": coalesce(
+    coverImage { asset->{ url, metadata { dimensions, lqip } }, alt },
+    mainImage  { asset->{ url, metadata { dimensions, lqip } }, alt }
+  )
 }`
 
 export const POST_QUERY = `*[_type == "post" && slug.current == $slug][0] {
@@ -20,17 +25,17 @@ export const POST_QUERY = `*[_type == "post" && slug.current == $slug][0] {
   "slug": slug.current,
   publishedAt,
   excerpt,
-  category,
-  author,
+  "category": coalesce(category, categories[0]->title),
+  "author": coalesce(author->name, author),
   readTime,
   tags,
-  coverImage {
-    asset->{ url, metadata { dimensions, lqip } },
-    alt
-  },
+  "coverImage": coalesce(
+    coverImage { asset->{ url, metadata { dimensions, lqip } }, alt },
+    mainImage  { asset->{ url, metadata { dimensions, lqip } }, alt }
+  ),
   body[] {
     ...,
-    _type == "image" => { ..., asset-> }
+    _type == "image" => { ..., asset->{ url, metadata { dimensions, lqip } } }
   }
 }`
 

@@ -135,6 +135,46 @@ main { position: relative; z-index: 1; }
 .nav.at-top .btn:hover           { color: #fff; border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.1); }
 .nav.at-top .btn-menu            { color: rgba(255,255,255,0.82); border-color: rgba(255,255,255,0.28); }
 
+/* Blog nav chip — stands out from other links */
+.nav-links .nav-link-blog {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent) !important;
+  border: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
+  border-radius: 100px;
+  padding: 4px 11px;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.nav-links .nav-link-blog:hover {
+  background: color-mix(in oklab, var(--accent) 10%, transparent);
+  border-color: var(--accent);
+  color: var(--accent) !important;
+}
+/* Keep blog chip visible on hero at-top */
+.nav.at-top .nav-links .nav-link-blog {
+  color: var(--accent) !important;
+  border-color: color-mix(in oklab, var(--accent) 50%, transparent);
+}
+
+/* Ghost links — disabled on /blog pages */
+.nav-links .nav-link-ghost {
+  opacity: 0.28;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Overlay blog link accent */
+.ol-link-blog .ol-label { color: var(--accent); }
+.ol-link-blog .ol-idx   { color: color-mix(in oklab, var(--accent) 60%, transparent); }
+
+/* Overlay ghost links on /blog pages */
+.ol-link-ghost {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .logo {
   justify-self: center;
   display: flex; align-items: center; cursor: pointer; user-select: none;

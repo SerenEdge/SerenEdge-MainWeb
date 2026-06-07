@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "@/hooks/useTheme";
 import { showToast } from "@/lib/toast";
 import { openContactModal } from "@/lib/contact";
@@ -12,16 +12,19 @@ const navLinks = [
   { idx: "03", label: "Work",     href: "#work"      },
   { idx: "04", label: "About",    href: "#about"     },
   { idx: "05", label: "Contact",  href: "#contact"   },
-  { idx: "06", label: "Blog",     href: "/blog"      },
+  { idx: "06", label: "Blog",     href: "/blog", blog: true },
 ];
 
 export function Navbar() {
   const { theme, toggle } = useTheme();
   const pathname = usePathname();
+  const router   = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const logoClicksRef = useRef(0);
   const timerRef      = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  const onBlog = pathname.startsWith("/blog");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -41,8 +44,12 @@ export function Navbar() {
   }, [menuOpen]);
 
   function handleLogoClick() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
     setMenuOpen(false);
+    if (onBlog) {
+      router.push("/");
+      return;
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
     logoClicksRef.current += 1;
     clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => { logoClicksRef.current = 0; }, 1500);
@@ -58,7 +65,21 @@ export function Navbar() {
         {/* Left — desktop nav links */}
         <nav className="nav-links">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href}>{link.label}</a>
+            <a
+              key={link.href}
+              href={link.href}
+              className={
+                link.blog
+                  ? "nav-link-blog"
+                  : onBlog
+                  ? "nav-link-ghost"
+                  : undefined
+              }
+              aria-disabled={!link.blog && onBlog ? true : undefined}
+              tabIndex={!link.blog && onBlog ? -1 : undefined}
+            >
+              {link.label}
+            </a>
           ))}
         </nav>
 
@@ -66,7 +87,7 @@ export function Navbar() {
         <div
           className="logo"
           onClick={handleLogoClick}
-          title="Click me 5 times…"
+          title={onBlog ? "Go home" : "Click me 5 times…"}
           role="button"
           tabIndex={0}
           onKeyDown={(e) => e.key === "Enter" && handleLogoClick()}
@@ -117,9 +138,12 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="ol-link"
+              className={`ol-link${!link.blog && onBlog ? " ol-link-ghost" : ""}${link.blog ? " ol-link-blog" : ""}`}
               style={{ "--i": i } as React.CSSProperties}
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                if (!link.blog && onBlog) { e.preventDefault(); return; }
+                setMenuOpen(false);
+              }}
             >
               <span className="ol-idx">{link.idx}</span>
               <span className="ol-label">{link.label}</span>
