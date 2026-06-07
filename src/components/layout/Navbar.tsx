@@ -73,7 +73,7 @@ export function Navbar() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={theme === "dark" || !scrolled ? "/Base%20Logo%20-%20Light.png" : "/Base%20Logo%20-%20Dark.png"}
+            src={theme === "dark" || (!scrolled && pathname === "/") ? "/Base%20Logo%20-%20Light.png" : "/Base%20Logo%20-%20Dark.png"}
             alt="SerenEdge"
             className="logo-img"
           />
