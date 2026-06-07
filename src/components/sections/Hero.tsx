@@ -36,11 +36,7 @@ export function Hero() {
 
   return (
     <section className="hero v-a" ref={sectionRef}>
-      <div className="hero-eyebrow">
-        <span className="live-dot" />
-        <span>Currently open · 3 projects in flight · accepting Q2 work</span>
-      </div>
-
+      
       <h1>
         {["Engineering", "solutions", "at", "the"].map((w) => (
           <span key={w} className="word">

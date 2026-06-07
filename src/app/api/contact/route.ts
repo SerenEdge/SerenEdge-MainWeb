@@ -1,6 +1,17 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
+/* ── In-memory rate limiter: 3 submissions per IP per minute ─────────────── */
+const rateMap = new Map<string, { count: number; reset: number }>();
+function checkRate(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateMap.get(ip);
+  if (!entry || now > entry.reset) { rateMap.set(ip, { count: 1, reset: now + 60_000 }); return true; }
+  if (entry.count >= 3) return false;
+  entry.count++;
+  return true;
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const FROM    = process.env.CONTACT_FROM_EMAIL ?? "SerenEdge <onboarding@resend.dev>";
@@ -378,6 +389,13 @@ function notificationHtml(name: string, email: string, message: string) {
    Route handler
    ──────────────────────────────────────────────────────────────────────────── */
 export async function POST(request: Request) {
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim()
+           ?? request.headers.get("x-real-ip")
+           ?? "unknown";
+  if (!checkRate(ip)) {
+    return NextResponse.json({ error: "Too many requests — try again in a minute." }, { status: 429 });
+  }
+
   let body: unknown;
   try {
     body = await request.json();

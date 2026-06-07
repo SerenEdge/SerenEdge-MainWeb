@@ -25,7 +25,7 @@ export function About() {
               <span className="founder-photo">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/IMG_9222-Daham.jpeg"
+                  src="/Founder-daham.webp"
                   alt="Daham Dissanayake"
                   style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />

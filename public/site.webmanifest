@@ -1,0 +1,17 @@
+{
+  "name": "SerenEdge",
+  "short_name": "SerenEdge",
+  "description": "Engineering solutions at the edge of what's possible",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0d12",
+  "theme_color": "#0b0d12",
+  "icons": [
+    {
+      "src": "/icons/Base Logo - Dark.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    }
+  ]
+}

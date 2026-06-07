@@ -9,7 +9,7 @@ import { RevealObserver } from "@/components/ui/RevealObserver";
 
 export default function HomePage() {
   return (
-    <main>
+    <main id="main-content">
       <RevealObserver />
       <Hero />
       <Marquee />

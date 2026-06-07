@@ -1,3 +1,7 @@
+"use client";
+
+import { openContactModal } from "@/lib/contact";
+
 export function Contact() {
   return (
     <section className="contact-section" id="contact">
@@ -37,13 +41,10 @@ export function Contact() {
             </span>
           </div>
           <div style={{ marginTop: 8 }}>
-            <a
-              className="btn btn-primary"
-              href="mailto:dahamdissanayake05@gmail.com?subject=SerenEdge%20%E2%80%94%20I%20have%20a%20problem"
-            >
+            <button className="btn btn-primary" onClick={openContactModal}>
               <span className="dot" />
               Start a project
-            </a>
+            </button>
           </div>
         </div>
       </div>
