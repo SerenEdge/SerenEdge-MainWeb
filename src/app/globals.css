@@ -993,6 +993,7 @@ section { position: relative; padding: 120px 40px; }
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding: 0 20px 8px !important;
+    scroll-padding-left: 20px;
     gap: 14px !important;
     transform: none !important;
     will-change: auto !important;
