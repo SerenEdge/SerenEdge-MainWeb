@@ -132,22 +132,19 @@ main { position: relative; z-index: 1; }
 }
 .logo-img { height: 44px; width: auto; display: block; }
 
-.nav-links { display: flex; flex-direction: column; gap: 1px; }
+.nav-links { display: flex; gap: 32px; }
 .nav-links a {
-  position: relative; display: inline-block;
-  font-size: 11px; letter-spacing: 0.02em;
-  color: var(--text-3); padding-left: 0;
-  transition: color .25s ease, padding-left .3s cubic-bezier(.4,0,.2,1);
+  position: relative; color: var(--text-2); font-size: 13px;
+  transition: color .2s ease;
 }
 .nav-links a::before {
-  content: '';
-  position: absolute; left: 0; top: 50%;
-  width: 10px; height: 1px; background: var(--accent);
-  transform: translateY(-50%) scaleX(0); transform-origin: left center;
-  transition: transform .3s cubic-bezier(.4,0,.2,1);
+  content: ''; position: absolute; left: 0; bottom: -4px;
+  width: 100%; height: 1px; background: var(--accent);
+  transform: scaleX(0); transform-origin: right;
+  transition: transform .35s cubic-bezier(.7,0,.3,1);
 }
-.nav-links a:hover { color: var(--text); padding-left: 16px; }
-.nav-links a:hover::before { transform: translateY(-50%) scaleX(1); }
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::before { transform: scaleX(1); transform-origin: left; }
 .nav-links a .idx { display: none; }
 
 .nav-cta { justify-self: end; display: flex; align-items: center; gap: 12px; }
