@@ -14,8 +14,12 @@ export const revalidate = 60
 type Props = { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
-  const slugs = await client.fetch<{ slug: string }[]>(POST_SLUGS_QUERY)
-  return slugs.map((s) => ({ slug: s.slug }))
+  try {
+    const slugs = await client.fetch<{ slug: string }[]>(POST_SLUGS_QUERY)
+    return slugs.map((s) => ({ slug: s.slug }))
+  } catch {
+    return []
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
