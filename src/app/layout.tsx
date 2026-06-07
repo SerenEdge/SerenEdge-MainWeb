@@ -8,7 +8,7 @@ import { Cursor }       from "@/components/ui/Cursor";
 import { KonamiModal }  from "@/components/ui/KonamiModal";
 import { ContactModal } from "@/components/ui/ContactModal";
 import { Toast }        from "@/components/ui/Toast";
-import { TimeGreeting } from "@/components/ui/TimeGreeting";
+import { FaviconSync }  from "@/components/ui/FaviconSync";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <KonamiModal />
         <ContactModal />
         <Toast />
-        <TimeGreeting />
+        <FaviconSync />
       </body>
     </html>
   );
