@@ -5,7 +5,7 @@ export function About() {
         <div>
           <div className="section-label">04 / Who we are</div>
           <h2 className="section-title">
-            One undergrad. <em>One studio.</em>
+            Not one lane. <em>Every node.</em>
           </h2>
         </div>
       </div>
@@ -13,9 +13,9 @@ export function About() {
       <div className="about-content">
         <div className="about-text">
           <p>
-            SerenEdge started because{" "}
+            SerenEdge is not a company framed into a single pathway. Founded by{" "}
             <span className="founder-name">
-              Daham
+              Daham Dissanayake
               <span className="founder-photo">
                 <svg
                   viewBox="0 0 180 220"
@@ -25,8 +25,8 @@ export function About() {
                 >
                   <defs>
                     <linearGradient id="fg" x1="0" x2="1" y1="0" y2="1">
-                      <stop offset="0" stopColor="#0a0e1a" />
-                      <stop offset="1" stopColor="#4f46e5" />
+                      <stop offset="0" stopColor="#0e1118" />
+                      <stop offset="1" stopColor="#2b5fa0" />
                     </linearGradient>
                   </defs>
                   <rect width="180" height="220" fill="url(#fg)" />
@@ -35,25 +35,23 @@ export function About() {
                 </svg>
                 <span className="fp-cap">// daham — founder</span>
               </span>
-            </span>{" "}
-            got tired of watching small businesses pay big money for software that
-            didn&apos;t fit, didn&apos;t ship, or didn&apos;t even get finished. So he started a
-            team to do it differently.
+            </span>
+            {", "}we operate across the full spectrum — our own startups, client
+            projects, and anything that ships software, signals, or systems.
+            A-to-Z IT solutions, handled in-house from first brief to final deployment.
           </p>
 
           <p>
-            Daham is still an undergraduate — and the team around him works the way
-            undergrads do: more energy, more curiosity, and (let&apos;s be honest) more
-            time than the studios twice our size. We code at 2am because the problem
-            is interesting. We pick up the phone when you call. We treat every
-            project like it&apos;s the one our reputation depends on, because at this
-            stage, it is.
+            We don&apos;t specialise in one stack or one industry. We pick up problems
+            other shops won&apos;t touch — embedded firmware, ML pipelines, custom ERPs,
+            IoT fleets, web platforms — and we see them through. Same team, same
+            accountability, start to finish.
           </p>
 
           <p>
-            The name &ldquo;SerenEdge&rdquo; is half-aspirational: <em>seren</em> for the calm
-            of a well-built system, and <em>edge</em> for the bleeding edge of
-            what&apos;s possible right now. We try to live in that intersection.
+            The name &ldquo;SerenEdge&rdquo; says it plainly: <em>Seren</em> for Sri Lanka,
+            where we&apos;re rooted, and <em>Edge</em> for the way we work &mdash;
+            connecting through every node, reaching every layer of the stack.
           </p>
         </div>
 
