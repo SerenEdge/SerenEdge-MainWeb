@@ -48,12 +48,10 @@ export function About() {
         <aside className="about-side">
           <h4>// On the record</h4>
           <ul>
-            {[
-              { year: "2024", item: "SerenEdge starts", sub: "founded by Daham · late nights · zero excuses" },
-              { year: "2025", item: "First production deployment", sub: "SoterCare IoT pipeline live" },
-              { year: "2025", item: "First paid retainer", sub: "regional retailer, ongoing" },
-              { year: "2026", item: "14 projects shipped", sub: "across 6 disciplines" },
-              { year: "next", item: "Yours?", sub: "book a 90-min call below" },
+            [
+              { year: "Feb 2026", item: "SerenEdge founded", sub: "Daham Dissanayake · day one · building in public" },
+              { year: "2026", item: "SoterCare in development", sub: "first active project · Healthcare IoT" },
+              { year: "next", item: "Yours?", sub: "reach out below" },
             ].map((e) => (
               <li key={e.year + e.item}>
                 <span className="year">{e.year}</span>
