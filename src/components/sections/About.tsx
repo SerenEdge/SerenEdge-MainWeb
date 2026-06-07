@@ -1,10 +1,6 @@
 export function About() {
   return (
     <section className="about-section" id="about">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/Base Logo - Light.png" alt="" aria-hidden="true" className="about-bg-logo about-bg-logo--dark" />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/Base Logo - Dark.png"  alt="" aria-hidden="true" className="about-bg-logo about-bg-logo--light" />
       <div className="section-head">
         <div>
           <div className="section-label">Who we are</div>

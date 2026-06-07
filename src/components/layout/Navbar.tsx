@@ -51,7 +51,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className={`nav${scrolled ? " scrolled" : ""}${!scrolled && theme === "light" ? " at-top" : ""}${menuOpen ? " menu-open" : ""}`}>
+      <header className={`nav${scrolled ? " scrolled" : ""}${menuOpen ? " menu-open" : ""}`}>
         {/* Left — desktop nav links */}
         <nav className="nav-links">
           {navLinks.map((link) => (
@@ -70,7 +70,7 @@ export function Navbar() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={theme === "dark" || !scrolled ? "/Base%20Logo%20-%20Light.png" : "/Base%20Logo%20-%20Dark.png"}
+            src={theme === "light" ? "/Base%20Logo%20-%20Dark.png" : "/Base%20Logo%20-%20Light.png"}
             alt="SerenEdge"
             className="logo-img"
           />

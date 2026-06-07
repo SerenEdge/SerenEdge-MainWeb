@@ -126,15 +126,6 @@ main { position: relative; z-index: 1; }
 }
 .nav.menu-open { background: transparent; border-bottom-color: transparent; }
 
-/* Light mode at hero top — white nav over dark hero image */
-.nav.at-top .nav-links a         { color: rgba(255,255,255,0.72); }
-.nav.at-top .nav-links a:hover   { color: #fff; }
-.nav.at-top .theme-toggle        { color: rgba(255,255,255,0.72); border-color: rgba(255,255,255,0.22); }
-.nav.at-top .theme-toggle:hover  { color: #fff; border-color: rgba(255,255,255,0.5); }
-.nav.at-top .btn                 { color: rgba(255,255,255,0.82); border-color: rgba(255,255,255,0.28); }
-.nav.at-top .btn:hover           { color: #fff; border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.1); }
-.nav.at-top .btn-menu            { color: rgba(255,255,255,0.82); border-color: rgba(255,255,255,0.28); }
-
 .logo {
   justify-self: center;
   display: flex; align-items: center; cursor: pointer; user-select: none;
@@ -645,19 +636,7 @@ section { position: relative; padding: 120px 40px; }
 .testi-who .role { color: var(--text-3); font-family: var(--font-mono), monospace; font-size: 11px; }
 
 /* ─── About ──────────────────────────────────────────────────────────────── */
-.about-section { padding: 140px 40px; position: relative; overflow: hidden; }
-
-.about-bg-logo {
-  position: absolute; right: -140px; top: 50%; transform: translateY(-50%);
-  width: min(680px, 60vw); height: auto;
-  pointer-events: none; user-select: none; z-index: 0;
-  opacity: 0.055;
-}
-.about-bg-logo--light { display: none; }
-[data-theme="light"] .about-bg-logo--dark  { display: none; }
-[data-theme="light"] .about-bg-logo--light { display: block; opacity: 0.07; }
-
-.about-section > *:not(.about-bg-logo) { position: relative; z-index: 1; }
+.about-section { padding: 140px 40px; }
 .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 .about-text p {
   font-size: 21px; line-height: 1.55; color: var(--text);
