@@ -48,7 +48,7 @@ export function About() {
         <aside className="about-side">
           <h4>// On the record</h4>
           <ul>
-            [
+            {[
               { year: "Feb 2026", item: "SerenEdge founded", sub: "Daham Dissanayake · day one · building in public" },
               { year: "Sep 2025", item: "SoterCare in development", sub: "first active project · Healthcare IoT" },
               { year: "next", item: "Yours?", sub: "reach out below" },
