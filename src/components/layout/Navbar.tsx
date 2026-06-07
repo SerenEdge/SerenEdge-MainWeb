@@ -63,31 +63,28 @@ export function Navbar() {
     <>
       <header className={`nav${scrolled ? " scrolled" : ""}${!scrolled && theme === "light" && pathname === "/" ? " at-top" : ""}${menuOpen ? " menu-open" : ""}`}>
 
-        {/* Left — site links ↔ back arrow, animated via CSS grid overlay */}
-        <nav className="nav-links">
-          {/* Site links: exit right when on /blog */}
-          <div className={`nl-site${onBlog ? " nl-exit" : ""}`}>
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={link.blog ? "nav-link-blog" : undefined}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+        {/* Site links — col 1, exits right when on /blog */}
+        <div className={`nl-site${onBlog ? " nl-exit" : ""}`}>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={link.blog ? "nav-link-blog" : undefined}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
 
-          {/* Back-to-home: exit left when NOT on /blog */}
-          <button
-            className={`nl-back${onBlog ? "" : " nl-exit"}`}
-            onClick={() => router.push("/")}
-            aria-label="Back to home"
-          >
-            <span className="nl-back-arr">←</span>
-            Back
-          </button>
-        </nav>
+        {/* Back button — col 1, exits left when NOT on /blog */}
+        <button
+          className={`nl-back${onBlog ? "" : " nl-exit"}`}
+          onClick={() => router.push("/")}
+          aria-label="Back to home"
+        >
+          <span className="nl-back-arr">←</span>
+          Back
+        </button>
 
         {/* Center — logo */}
         <div

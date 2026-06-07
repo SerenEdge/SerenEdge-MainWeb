@@ -127,8 +127,8 @@ main { position: relative; z-index: 1; }
 .nav.menu-open { background: transparent; border-bottom-color: transparent; }
 
 /* Light mode at hero top — white nav over dark hero image */
-.nav.at-top .nav-links a         { color: rgba(255,255,255,0.72); }
-.nav.at-top .nav-links a:hover   { color: #fff; }
+.nav.at-top .nl-site a         { color: rgba(255,255,255,0.72); }
+.nav.at-top .nl-site a:hover   { color: #fff; }
 .nav.at-top .theme-toggle        { color: rgba(255,255,255,0.72); border-color: rgba(255,255,255,0.22); }
 .nav.at-top .theme-toggle:hover  { color: #fff; border-color: rgba(255,255,255,0.5); }
 .nav.at-top .btn                 { color: rgba(255,255,255,0.82); border-color: rgba(255,255,255,0.28); }
@@ -136,13 +136,11 @@ main { position: relative; z-index: 1; }
 .nav.at-top .btn-menu            { color: rgba(255,255,255,0.82); border-color: rgba(255,255,255,0.28); }
 
 /* Blog nav link — bold + slightly larger */
-.nav-links .nav-link-blog { font-weight: 600; font-size: 14px; }
+.nl-site .nav-link-blog { font-weight: 600; font-size: 14px; }
 
-/* ── Nav-links: grid overlay lets site-links and back-btn share one cell ── */
-.nav-links { display: grid; place-items: center start; }
-
+/* ── nl-site and nl-back are direct nav grid children, both in column 1 ── */
 .nl-site {
-  grid-area: 1 / 1;
+  grid-column: 1; grid-row: 1;
   display: flex; align-items: center; gap: 32px;
   transition: opacity 0.38s cubic-bezier(.4,0,.2,1),
               transform 0.38s cubic-bezier(.4,0,.2,1);
@@ -153,7 +151,8 @@ main { position: relative; z-index: 1; }
 }
 
 .nl-back {
-  grid-area: 1 / 1;
+  grid-column: 1; grid-row: 1;
+  justify-self: start; align-self: center;
   display: flex; align-items: center; gap: 9px;
   background: none; border: none; cursor: pointer; padding: 0;
   color: var(--text-2);
@@ -183,19 +182,19 @@ main { position: relative; z-index: 1; }
 }
 .logo-img { height: 44px; width: auto; display: block; }
 
-.nav-links a {
+.nl-site a {
   position: relative; color: var(--text-2); font-size: 13px;
   transition: color .2s ease;
 }
-.nav-links a::before {
+.nl-site a::before {
   content: ''; position: absolute; left: 0; bottom: -4px;
   width: 100%; height: 1px; background: var(--accent);
   transform: scaleX(0); transform-origin: right;
   transition: transform .35s cubic-bezier(.7,0,.3,1);
 }
-.nav-links a:hover { color: var(--text); }
-.nav-links a:hover::before { transform: scaleX(1); transform-origin: left; }
-.nav-links a .idx { display: none; }
+.nl-site a:hover { color: var(--text); }
+.nl-site a:hover::before { transform: scaleX(1); transform-origin: left; }
+.nl-site a .idx { display: none; }
 
 .nav-cta { justify-self: end; display: flex; align-items: center; gap: 12px; }
 
@@ -862,7 +861,8 @@ section { position: relative; padding: 120px 40px; }
   .testi-grid { grid-template-columns: 1fr; }
   .stack-grid { grid-template-columns: repeat(3, 1fr); }
   .hero-content { bottom: 32px; left: 24px; right: 24px; max-width: 100%; }
-  .nav-links { display: none; }
+  .nl-site { display: none; }
+  .nl-back { display: none; }
   .btn-menu { display: inline-flex; }
   .nav { grid-template-columns: 1fr auto; }
   .logo { justify-self: start; }
