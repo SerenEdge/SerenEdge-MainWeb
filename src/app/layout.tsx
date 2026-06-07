@@ -6,6 +6,7 @@ import { KonamiModal } from "@/components/ui/KonamiModal";
 import { ContactModal } from "@/components/ui/ContactModal";
 import { Toast } from "@/components/ui/Toast";
 import { FaviconSync } from "@/components/ui/FaviconSync";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -136,6 +137,7 @@ export default function RootLayout({
         <ContactModal />
         <Toast />
         <FaviconSync />
+        <Analytics />
       </body>
     </html>
   );
