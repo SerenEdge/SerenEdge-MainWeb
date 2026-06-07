@@ -12,6 +12,7 @@ const navLinks = [
   { idx: "03", label: "Work",     href: "#work"      },
   { idx: "04", label: "About",    href: "#about"     },
   { idx: "05", label: "Contact",  href: "#contact"   },
+  { idx: "06", label: "Blog",     href: "/blog"      },
 ];
 
 export function Navbar() {
