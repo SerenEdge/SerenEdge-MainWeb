@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
+import { StarField } from "@/components/ui/StarField";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -34,6 +35,7 @@ export function Hero() {
         style={{ objectFit: "cover", objectPosition: "center", zIndex: 0 }}
       />
       <div className="hero-overlay" aria-hidden="true" />
+      <StarField />
 
       <div className="hero-content">
         <span className="hero-brand">SerenEdge</span>
