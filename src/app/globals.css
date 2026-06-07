@@ -124,7 +124,7 @@ main { position: relative; z-index: 1; }
 .logo {
   display: flex; align-items: center; cursor: pointer; user-select: none;
 }
-.logo-img { height: 28px; width: auto; display: block; }
+.logo-img { height: 44px; width: auto; display: block; }
 
 .nav-links { display: flex; gap: 32px; }
 .nav-links a {
