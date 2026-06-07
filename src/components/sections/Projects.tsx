@@ -47,29 +47,13 @@ export function Projects() {
               ))}
             </div>
           </div>
-          <div className="proj-visual">
-            <svg
-              viewBox="0 0 600 280"
-              width="100%"
-              height="100%"
-              preserveAspectRatio="xMidYMid slice"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.3"
-              style={{ color: "var(--accent)" }}
-            >
-              <rect x="0" y="0" width="600" height="280" fill="var(--bg-2)" />
-              <path d="M0 180 Q50 160 100 170 T200 150 T300 180 T400 130 T500 160 T600 140" strokeWidth="1.5" opacity="0.6" />
-              <path d="M0 200 Q60 180 120 195 T240 175 T360 200 T480 170 T600 185" strokeWidth="1" opacity="0.3" />
-              <circle cx="120" cy="170" r="4" fill="currentColor" />
-              <circle cx="240" cy="155" r="4" fill="currentColor" />
-              <circle cx="360" cy="178" r="4" fill="currentColor" />
-              <circle cx="480" cy="135" r="4" fill="currentColor" />
-              <text x="20" y="40" fontFamily="JetBrains Mono" fontSize="11" fill="currentColor" opacity="0.7">heart_rate · spo2 · skin_temp · accel</text>
-              <text x="20" y="60" fontFamily="JetBrains Mono" fontSize="11" fill="currentColor" opacity="0.4">stream: 4 sensors @ 1Hz · 14ms RTT</text>
-              <rect x="430" y="22" width="150" height="32" rx="4" strokeWidth="1" opacity="0.4" />
-              <text x="505" y="42" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fill="currentColor">ALERT · BP rising</text>
-            </svg>
+          <div className="proj-visual" style={{ padding: 0, overflow: "hidden" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/SoterCare banner.png"
+              alt="SoterCare"
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
           </div>
         </article>
 

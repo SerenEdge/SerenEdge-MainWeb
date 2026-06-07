@@ -14,7 +14,13 @@ export function About() {
         <div className="about-text">
           <p>
             SerenEdge is not a company framed into a single pathway. Founded by{" "}
-            <span className="founder-name">
+            <a
+              href="https://daham.serenedge.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="founder-name"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               Daham Dissanayake
               <span className="founder-photo">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -25,7 +31,7 @@ export function About() {
                 />
                 <span className="fp-cap">// daham — founder</span>
               </span>
-            </span>
+            </a>
             {", "}we operate across the full spectrum — our own startups, client
             projects, and anything that ships software, signals, or systems.
             A-to-Z IT solutions, handled in-house from first brief to final deployment.
