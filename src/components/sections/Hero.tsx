@@ -1,75 +1,47 @@
 "use client";
-
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const words = sectionRef.current?.querySelectorAll<HTMLElement>(".hero h1 .word span");
-    if (!words?.length) return;
+    const el = sectionRef.current;
+    if (!el) return;
 
-    gsap.to(Array.from(words), {
-      y: 0,
-      duration: 1.1,
-      ease: "expo.out",
-      stagger: 0.06,
-      delay: 0.15,
-    });
+    const brand  = el.querySelector(".hero-brand");
+    const slogan = el.querySelector(".hero-slogan");
+    const desc   = el.querySelector(".hero-desc");
+    const hint   = el.querySelector(".hero-scroll-hint");
 
-    gsap.from(
-      [
-        sectionRef.current?.querySelector(".hero-eyebrow"),
-        sectionRef.current?.querySelector(".hero-sub"),
-      ].filter(Boolean),
-      {
-        opacity: 0,
-        y: 18,
-        duration: 0.9,
-        stagger: 0.1,
-        delay: 0.7,
-        ease: "expo.out",
-      }
-    );
+    gsap.set([brand, slogan, desc], { opacity: 0, y: 20 });
+    gsap.set(hint, { opacity: 0 });
+
+    gsap.to(brand,  { opacity: 1, y: 0, duration: 0.8, delay: 0.5,  ease: "expo.out" });
+    gsap.to(slogan, { opacity: 1, y: 0, duration: 1.0, delay: 0.65, ease: "expo.out" });
+    gsap.to(desc,   { opacity: 1, y: 0, duration: 0.8, delay: 0.85, ease: "expo.out" });
+    gsap.to(hint,   { opacity: 1,       duration: 0.6, delay: 1.2,  ease: "power2.out" });
   }, []);
 
   return (
-    <section className="hero v-a" ref={sectionRef}>
-      
-      <h1>
-        {["Engineering", "solutions", "at", "the"].map((w) => (
-          <span key={w} className="word">
-            <span>{w} </span>
-          </span>
-        ))}
-        <span className="word">
-          <span>
-            <em>edge</em>{" "}
-          </span>
-        </span>
-        {["of", "what's", "possible."].map((w) => (
-          <span key={w} className="word">
-            <span>{w} </span>
-          </span>
-        ))}
-      </h1>
+    <section className="hero" ref={sectionRef}>
+      <Image
+        src="/Hero Background avif.avif"
+        alt=""
+        fill
+        priority
+        style={{ objectFit: "cover", objectPosition: "center", zIndex: 0 }}
+      />
+      <div className="hero-overlay" aria-hidden="true" />
 
-      <div className="hero-sub">
-        <p>
-          SerenEdge is a small, deeply technical IT studio. We take on the problems
-          other shops won&apos;t — web platforms, IoT, automation, custom systems, ML —
-          and ship them end-to-end.
+      <div className="hero-content">
+        <span className="hero-brand">SerenEdge</span>
+        <h1 className="hero-slogan">for each node.</h1>
+        <p className="hero-desc">
+          A deeply technical IT studio.<br />
+          Web&nbsp;·&nbsp;IoT&nbsp;·&nbsp;Automation&nbsp;·&nbsp;ML.
         </p>
-        <div className="hero-actions">
-          <a href="#contact" className="btn btn-primary">
-            <span className="dot" />
-            Give us a problem
-          </a>
-          <a href="#work" className="btn">
-            See work →
-          </a>
-        </div>
       </div>
 
       <div className="hero-scroll-hint">
