@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
-import { Navbar }       from "@/components/layout/Navbar";
-import { Footer }       from "@/components/layout/Footer";
-import { Cursor }       from "@/components/ui/Cursor";
-import { KonamiModal }  from "@/components/ui/KonamiModal";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { Cursor } from "@/components/ui/Cursor";
+import { KonamiModal } from "@/components/ui/KonamiModal";
 import { ContactModal } from "@/components/ui/ContactModal";
-import { Toast }        from "@/components/ui/Toast";
-import { FaviconSync }  from "@/components/ui/FaviconSync";
+import { Toast } from "@/components/ui/Toast";
+import { FaviconSync } from "@/components/ui/FaviconSync";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -33,12 +33,20 @@ const syne = Syne({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://serenedge.com"),
-  title: "SerenEdge — For each node.",
+  title: "SerenEdge | For each node.",
   description:
     "SerenEdge is a small, deeply technical IT studio based in Sri Lanka. We take on the problems other shops won't — web platforms, IoT, automation, custom systems, ML — and ship them end-to-end. For each node.",
   keywords: [
-    "IT solutions", "web development", "IoT", "automation", "machine learning",
-    "SerenEdge", "Sri Lanka", "full-stack", "embedded systems", "software studio",
+    "IT solutions",
+    "web development",
+    "IoT",
+    "automation",
+    "machine learning",
+    "SerenEdge",
+    "Sri Lanka",
+    "full-stack",
+    "embedded systems",
+    "software studio",
   ],
   authors: [{ name: "Daham Dissanayake", url: "https://daham.serenedge.com" }],
   creator: "Daham Dissanayake",
@@ -50,27 +58,38 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://serenedge.com" },
   manifest: "/site.webmanifest",
   openGraph: {
-    title:       "SerenEdge — For each node.",
+    title: "SerenEdge | For each node.",
     description: "Give us any IT problem. We will solve it. For each node.",
-    siteName:    "SerenEdge",
-    type:        "website",
-    url:         "https://serenedge.com",
-    locale:      "en_US",
-    images: [{ url: "/OG-page.png", width: 1200, height: 630, alt: "SerenEdge — For each node." }],
+    siteName: "SerenEdge",
+    type: "website",
+    url: "https://serenedge.com",
+    locale: "en_US",
+    images: [
+      {
+        url: "/OG-page.png",
+        width: 1200,
+        height: 630,
+        alt: "SerenEdge — For each node.",
+      },
+    ],
   },
   twitter: {
-    card:        "summary_large_image",
-    title:       "SerenEdge — For each node.",
+    card: "summary_large_image",
+    title: "SerenEdge — For each node.",
     description: "Give us any IT problem. We will solve it.",
-    images:      ["/OG-page.png"],
+    images: ["/OG-page.png"],
   },
 };
 
 /* Favicon paths — no %20 encoding, raw spaces work fine as link href values */
-const ICON_DARK  = "/icons/Base Logo - Dark.ico";   /* use on light theme */
-const ICON_LIGHT = "/icons/Base Logo - Light.ico";  /* use on dark theme  */
+const ICON_DARK = "/icons/Base Logo - Dark.ico"; /* use on light theme */
+const ICON_LIGHT = "/icons/Base Logo - Light.ico"; /* use on dark theme  */
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
@@ -84,7 +103,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           target it directly, avoiding conflicts with any media-query based links.
           Default to dark-theme icon (light icon on dark bg).
         */}
-        <link id="app-favicon" rel="icon" type="image/x-icon" href={ICON_LIGHT} />
+        <link
+          id="app-favicon"
+          rel="icon"
+          type="image/x-icon"
+          href={ICON_LIGHT}
+        />
 
         {/*
           FOUC prevention: apply saved theme + immediately correct the favicon
@@ -105,7 +129,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <a href="#main-content" className="skip-to-content">Skip to content</a>
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
         <div className="grid-bg" aria-hidden="true" />
         <SmoothScrollProvider>
           <Navbar />
