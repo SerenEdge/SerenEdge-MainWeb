@@ -17,22 +17,12 @@ export function About() {
             <span className="founder-name">
               Daham Dissanayake
               <span className="founder-photo">
-                <svg
-                  viewBox="0 0 180 220"
-                  preserveAspectRatio="xMidYMid slice"
-                  width="180"
-                  height="220"
-                >
-                  <defs>
-                    <linearGradient id="fg" x1="0" x2="1" y1="0" y2="1">
-                      <stop offset="0" stopColor="#0e1118" />
-                      <stop offset="1" stopColor="#2b5fa0" />
-                    </linearGradient>
-                  </defs>
-                  <rect width="180" height="220" fill="url(#fg)" />
-                  <circle cx="90" cy="85" r="34" fill="rgba(255,255,255,0.15)" />
-                  <path d="M30 220 Q90 130 150 220" fill="rgba(255,255,255,0.15)" />
-                </svg>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/IMG_9222-Daham.jpeg"
+                  alt="Daham Dissanayake"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
                 <span className="fp-cap">// daham — founder</span>
               </span>
             </span>
@@ -49,8 +39,8 @@ export function About() {
           </p>
 
           <p>
-            The name &ldquo;SerenEdge&rdquo; says it plainly: <em>Seren</em> for Sri Lanka,
-            where we&apos;re rooted, and <em>Edge</em> for the way we work &mdash;
+            The name &ldquo;SerenEdge&rdquo; says it plainly: <em>Seren</em>for Sri Lanka,
+            where we&apos;re rooted, and <em>Edge</em> for the way we work,
             connecting through every node, reaching every layer of the stack.
           </p>
         </div>
