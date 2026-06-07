@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { services } from "@/data/services";
+import { BrandWatermark } from "@/components/ui/BrandWatermark";
 
 export function Services() {
   const wrapRef  = useRef<HTMLDivElement>(null);
@@ -43,7 +44,8 @@ export function Services() {
   }, []);
 
   return (
-    <section className="services-section" id="services">
+    <section className="services-section" id="services" style={{ position: "relative", overflow: "hidden" }}>
+      <BrandWatermark className="brand-wm--services" />
       <div className="section-head">
         <div>
           <div className="section-label">01 / Services</div>
@@ -85,6 +87,7 @@ export function Services() {
                     {svc.footer} <span className="svc-arr">→</span>
                   </div>
                 </div>
+                <BrandWatermark className="brand-wm--card" />
                 {svc.glyph && (
                   <svg
                     className="svc-glyph"

@@ -1,6 +1,9 @@
+import { BrandWatermark } from "@/components/ui/BrandWatermark";
+
 export function About() {
   return (
     <section className="about-section" id="about">
+      <BrandWatermark className="brand-wm--about" />
       <div className="section-head">
         <div>
           <div className="section-label">04 / Who we are</div>

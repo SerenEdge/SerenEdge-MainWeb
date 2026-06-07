@@ -1,6 +1,9 @@
+import { BrandWatermark } from "@/components/ui/BrandWatermark";
+
 export function Contact() {
   return (
     <section className="contact-section" id="contact">
+      <BrandWatermark className="brand-wm--contact" />
       <div className="contact-grid">
         <div>
           <div className="section-label" style={{ marginBottom: 20 }}>

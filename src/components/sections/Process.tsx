@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { processSteps } from "@/data/process";
+import { BrandWatermark } from "@/components/ui/BrandWatermark";
 
 export function Process() {
   const stepsRef = useRef<HTMLDivElement>(null);
@@ -71,6 +72,7 @@ export function Process() {
 
   return (
     <section className="process-section" id="process">
+      <BrandWatermark className="brand-wm--process" />
       <div className="section-head">
         <div>
           <div className="section-label">02 / How we work</div>
