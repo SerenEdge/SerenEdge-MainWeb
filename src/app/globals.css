@@ -135,28 +135,51 @@ main { position: relative; z-index: 1; }
 .nav.at-top .btn:hover           { color: #fff; border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.1); }
 .nav.at-top .btn-menu            { color: rgba(255,255,255,0.82); border-color: rgba(255,255,255,0.28); }
 
-/* Blog nav link — same style as others but bold and slightly larger */
-.nav-links .nav-link-blog {
-  font-weight: 600;
-  font-size: 14px;
-}
+/* Blog nav link — bold + slightly larger */
+.nav-links .nav-link-blog { font-weight: 600; font-size: 14px; }
 
-/* Ghost links — disabled on /blog pages */
-.nav-links .nav-link-ghost {
-  opacity: 0.28;
-  pointer-events: none;
-  cursor: default;
+/* Nav-links grid overlay — smooth swap between site links and back arrow */
+.nav-links { display: grid; align-items: center; }
+.nav-links-row {
+  grid-area: 1 / 1;
+  display: flex; align-items: center; gap: 32px;
+  transition: opacity 0.38s ease, transform 0.38s ease;
+  white-space: nowrap;
 }
+.nav-links-row--out {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-12px);
+}
+.nav-links-row--back { gap: 0; }
+
+/* Back-to-home button in desktop nav */
+.nav-back {
+  display: flex; align-items: center; gap: 9px;
+  background: none; border: none; cursor: pointer; padding: 0;
+  color: var(--text-2);
+  font-family: var(--font-display), sans-serif;
+  font-size: 13px; letter-spacing: -0.01em;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--text); }
+.nav-back-arr {
+  display: inline-flex;
+  font-size: 16px; line-height: 1;
+  transition: transform 0.25s ease;
+}
+.nav-back:hover .nav-back-arr { transform: translateX(-4px); }
+
+/* Keep back button visible in light-mode at-top hero state */
+.nav.at-top .nav-back { color: rgba(255,255,255,0.72); }
+.nav.at-top .nav-back:hover { color: #fff; }
 
 /* Overlay blog link accent */
 .ol-link-blog .ol-label { color: var(--accent); }
 .ol-link-blog .ol-idx   { color: color-mix(in oklab, var(--accent) 60%, transparent); }
 
-/* Overlay ghost links on /blog pages */
-.ol-link-ghost {
-  opacity: 0.2;
-  pointer-events: none;
-}
+/* Overlay back button (used on /blog) */
+.ol-back { background: none; border: none; cursor: pointer; text-align: left; }
 
 .logo {
   justify-self: center;

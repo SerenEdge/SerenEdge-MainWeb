@@ -6,13 +6,13 @@ import { useTheme } from "@/hooks/useTheme";
 import { showToast } from "@/lib/toast";
 import { openContactModal } from "@/lib/contact";
 
-const navLinks = [
+const siteLinks = [
   { idx: "01", label: "Services", href: "#services" },
   { idx: "02", label: "Process",  href: "#process"  },
   { idx: "03", label: "Work",     href: "#work"      },
   { idx: "04", label: "About",    href: "#about"     },
   { idx: "05", label: "Contact",  href: "#contact"   },
-  { idx: "06", label: "Blog",     href: "/blog", blog: true },
+  { idx: "06", label: "Blog",     href: "/blog", bold: true },
 ];
 
 export function Navbar() {
@@ -62,25 +62,29 @@ export function Navbar() {
   return (
     <>
       <header className={`nav${scrolled ? " scrolled" : ""}${!scrolled && theme === "light" && pathname === "/" ? " at-top" : ""}${menuOpen ? " menu-open" : ""}`}>
-        {/* Left — desktop nav links */}
+
+        {/* Left — animated between site links and back arrow */}
         <nav className="nav-links">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={
-                link.blog
-                  ? "nav-link-blog"
-                  : onBlog
-                  ? "nav-link-ghost"
-                  : undefined
-              }
-              aria-disabled={!link.blog && onBlog ? true : undefined}
-              tabIndex={!link.blog && onBlog ? -1 : undefined}
-            >
-              {link.label}
-            </a>
-          ))}
+          {/* Normal site links */}
+          <div className={`nav-links-row${onBlog ? " nav-links-row--out" : ""}`}>
+            {siteLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={link.bold ? "nav-link-blog" : undefined}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Back to home — shown on blog pages */}
+          <div className={`nav-links-row nav-links-row--back${onBlog ? "" : " nav-links-row--out"}`}>
+            <button className="nav-back" onClick={() => router.push("/")}>
+              <span className="nav-back-arr">←</span>
+              Home
+            </button>
+          </div>
         </nav>
 
         {/* Center — logo */}
@@ -134,21 +138,30 @@ export function Navbar() {
       {/* Full-screen overlay menu */}
       <div className={`nav-overlay${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
         <nav className="nav-overlay-inner">
-          {navLinks.map((link, i) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`ol-link${!link.blog && onBlog ? " ol-link-ghost" : ""}${link.blog ? " ol-link-blog" : ""}`}
-              style={{ "--i": i } as React.CSSProperties}
-              onClick={(e) => {
-                if (!link.blog && onBlog) { e.preventDefault(); return; }
-                setMenuOpen(false);
-              }}
+          {onBlog ? (
+            /* Blog overlay — single back-to-home link */
+            <button
+              className="ol-link ol-back"
+              style={{ "--i": 0 } as React.CSSProperties}
+              onClick={() => { setMenuOpen(false); router.push("/"); }}
             >
-              <span className="ol-idx">{link.idx}</span>
-              <span className="ol-label">{link.label}</span>
-            </a>
-          ))}
+              <span className="ol-idx">←</span>
+              <span className="ol-label">Home</span>
+            </button>
+          ) : (
+            siteLinks.map((link, i) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`ol-link${link.bold ? " ol-link-blog" : ""}`}
+                style={{ "--i": i } as React.CSSProperties}
+                onClick={() => setMenuOpen(false)}
+              >
+                <span className="ol-idx">{link.idx}</span>
+                <span className="ol-label">{link.label}</span>
+              </a>
+            ))
+          )}
         </nav>
 
         <div className="nav-overlay-cta">
