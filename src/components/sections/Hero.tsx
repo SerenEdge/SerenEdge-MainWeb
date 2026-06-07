@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
-import { BrandWatermark } from "@/components/ui/BrandWatermark";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -38,7 +37,6 @@ export function Hero() {
 
   return (
     <section className="hero v-a" ref={sectionRef}>
-      <BrandWatermark className="brand-wm--hero" />
       {/* Variant A — Statement */}
       <div className="hero-eyebrow">
         <span className="live-dot" />

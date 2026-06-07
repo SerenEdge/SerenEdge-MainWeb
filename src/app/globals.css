@@ -39,41 +39,6 @@
   --shadow:    0 30px 80px -20px rgba(28,43,71,0.16);
 }
 
-/* ─── Brand identity watermarks ─────────────────────────────────────────── */
-.brand-wm {
-  position: absolute; pointer-events: none; user-select: none;
-  display: block; z-index: 0;
-  filter: invert(1); opacity: 0.055;
-}
-[data-theme="light"] .brand-wm { filter: none; opacity: 0.045; }
-
-/* Large half-cut bg marks per section */
-.brand-wm--hero     { width: 56vw; max-width: 760px; right: -10%; bottom: -14%; }
-.brand-wm--services { width: 34vw; max-width: 460px; right: 0;    top: -10%;   opacity: 0.04; }
-.brand-wm--process  { width: 40vw; max-width: 540px; right: -8%;  bottom: -16%; opacity: 0.04; }
-.brand-wm--projects { width: 48vw; max-width: 640px; right: -8%;  bottom: -14%; }
-.brand-wm--about    { width: 52vw; max-width: 700px; right: -8%;  top: 50%; transform: translateY(-50%); }
-.brand-wm--contact  { width: 50vw; max-width: 680px; right: -6%;  bottom: -10%; opacity: 0.04; }
-
-/* Small iconic card/corner marks */
-.brand-wm--card {
-  width: 110px; right: -18px; bottom: -18px;
-  opacity: 0.10;
-}
-[data-theme="light"] .brand-wm--card { opacity: 0.08; }
-
-/* Footer mark — visible branding */
-.brand-wm--footer {
-  position: static; width: 52px; opacity: 0.55; filter: none;
-}
-[data-theme="dark"] .brand-wm--footer { filter: invert(1); opacity: 0.50; }
-
-/* Sections that clip the bg mark at their edge */
-.about-section,
-.projects-section,
-.contact-section,
-.process-section { overflow: hidden; }
-
 /* ─── Base ───────────────────────────────────────────────────────────────── */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 

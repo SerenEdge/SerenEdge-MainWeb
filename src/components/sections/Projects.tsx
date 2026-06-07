@@ -1,5 +1,4 @@
 import { projects } from "@/data/projects";
-import { BrandWatermark } from "@/components/ui/BrandWatermark";
 
 export function Projects() {
   const [featured] = projects;
@@ -7,7 +6,6 @@ export function Projects() {
 
   return (
     <section className="projects-section" id="work">
-      <BrandWatermark className="brand-wm--projects" />
       <div className="section-head">
         <div>
           <div className="section-label">03 / Active projects</div>
