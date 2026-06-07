@@ -25,9 +25,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const post = await client.fetch<SanityPost | null>(POST_QUERY, { slug })
-  if (!post) return { title: 'Post not found — SerenEdge' }
+  if (!post) return { title: 'Post not found | SerenEdge' }
   return {
-    title: `${post.title} — SerenEdge Blog`,
+    title: `${post.title} | SerenEdge Blog`,
     description: post.excerpt,
     openGraph: post.coverImage?.asset
       ? { images: [{ url: urlFor(post.coverImage).width(1200).height(630).url() }] }

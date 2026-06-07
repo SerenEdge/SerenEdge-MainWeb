@@ -62,25 +62,31 @@ export function Navbar() {
   return (
     <>
       <header className={`nav${scrolled ? " scrolled" : ""}${!scrolled && theme === "light" && pathname === "/" ? " at-top" : ""}${menuOpen ? " menu-open" : ""}`}>
-        {/* Left — desktop nav links */}
+
+        {/* Left — site links ↔ back arrow, animated via CSS grid overlay */}
         <nav className="nav-links">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={
-                link.blog
-                  ? "nav-link-blog"
-                  : onBlog
-                  ? "nav-link-ghost"
-                  : undefined
-              }
-              aria-disabled={!link.blog && onBlog ? true : undefined}
-              tabIndex={!link.blog && onBlog ? -1 : undefined}
-            >
-              {link.label}
-            </a>
-          ))}
+          {/* Site links: exit right when on /blog */}
+          <div className={`nl-site${onBlog ? " nl-exit" : ""}`}>
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={link.blog ? "nav-link-blog" : undefined}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Back-to-home: exit left when NOT on /blog */}
+          <button
+            className={`nl-back${onBlog ? "" : " nl-exit"}`}
+            onClick={() => router.push("/")}
+            aria-label="Back to home"
+          >
+            <span className="nl-back-arr">←</span>
+            Home
+          </button>
         </nav>
 
         {/* Center — logo */}
@@ -134,21 +140,29 @@ export function Navbar() {
       {/* Full-screen overlay menu */}
       <div className={`nav-overlay${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
         <nav className="nav-overlay-inner">
-          {navLinks.map((link, i) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`ol-link${!link.blog && onBlog ? " ol-link-ghost" : ""}${link.blog ? " ol-link-blog" : ""}`}
-              style={{ "--i": i } as React.CSSProperties}
-              onClick={(e) => {
-                if (!link.blog && onBlog) { e.preventDefault(); return; }
-                setMenuOpen(false);
-              }}
+          {onBlog ? (
+            <button
+              className="ol-link ol-back"
+              style={{ "--i": 0 } as React.CSSProperties}
+              onClick={() => { setMenuOpen(false); router.push("/"); }}
             >
-              <span className="ol-idx">{link.idx}</span>
-              <span className="ol-label">{link.label}</span>
-            </a>
-          ))}
+              <span className="ol-idx">←</span>
+              <span className="ol-label">Home</span>
+            </button>
+          ) : (
+            navLinks.map((link, i) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`ol-link${link.blog ? " ol-link-blog" : ""}`}
+                style={{ "--i": i } as React.CSSProperties}
+                onClick={() => setMenuOpen(false)}
+              >
+                <span className="ol-idx">{link.idx}</span>
+                <span className="ol-label">{link.label}</span>
+              </a>
+            ))
+          )}
         </nav>
 
         <div className="nav-overlay-cta">

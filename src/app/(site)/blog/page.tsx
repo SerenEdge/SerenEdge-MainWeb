@@ -9,7 +9,7 @@ import { urlFor } from '@/sanity/lib/image'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Blog — SerenEdge',
+  title: 'Blog | SerenEdge',
   description: 'Engineering notes, product updates, and deep dives from the SerenEdge team.',
 }
 

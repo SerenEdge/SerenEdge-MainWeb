@@ -135,28 +135,47 @@ main { position: relative; z-index: 1; }
 .nav.at-top .btn:hover           { color: #fff; border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.1); }
 .nav.at-top .btn-menu            { color: rgba(255,255,255,0.82); border-color: rgba(255,255,255,0.28); }
 
-/* Blog nav link — same style as others but bold and slightly larger */
-.nav-links .nav-link-blog {
-  font-weight: 600;
-  font-size: 14px;
+/* Blog nav link — bold + slightly larger */
+.nav-links .nav-link-blog { font-weight: 600; font-size: 14px; }
+
+/* ── Nav-links: grid overlay lets site-links and back-btn share one cell ── */
+.nav-links { display: grid; place-items: center start; }
+
+.nl-site {
+  grid-area: 1 / 1;
+  display: flex; align-items: center; gap: 32px;
+  transition: opacity 0.38s cubic-bezier(.4,0,.2,1),
+              transform 0.38s cubic-bezier(.4,0,.2,1);
+}
+.nl-site.nl-exit {
+  opacity: 0; pointer-events: none;
+  transform: translateX(52px);
 }
 
-/* Ghost links — disabled on /blog pages */
-.nav-links .nav-link-ghost {
-  opacity: 0.28;
-  pointer-events: none;
-  cursor: default;
+.nl-back {
+  grid-area: 1 / 1;
+  display: flex; align-items: center; gap: 9px;
+  background: none; border: none; cursor: pointer; padding: 0;
+  color: var(--text-2);
+  font-family: var(--font-mono), monospace; font-size: 13px;
+  transition: opacity 0.38s cubic-bezier(.4,0,.2,1),
+              transform 0.38s cubic-bezier(.4,0,.2,1),
+              color 0.2s;
 }
+.nl-back.nl-exit {
+  opacity: 0; pointer-events: none;
+  transform: translateX(-16px);
+}
+.nl-back:hover { color: var(--text); }
+.nl-back-arr { display: inline-flex; transition: transform 0.22s ease; }
+.nl-back:hover .nl-back-arr { transform: translateX(-4px); }
 
 /* Overlay blog link accent */
 .ol-link-blog .ol-label { color: var(--accent); }
 .ol-link-blog .ol-idx   { color: color-mix(in oklab, var(--accent) 60%, transparent); }
 
-/* Overlay ghost links on /blog pages */
-.ol-link-ghost {
-  opacity: 0.2;
-  pointer-events: none;
-}
+/* Overlay back button (used on /blog) */
+.ol-back { background: none; border: none; cursor: pointer; text-align: left; }
 
 .logo {
   justify-self: center;
@@ -164,7 +183,6 @@ main { position: relative; z-index: 1; }
 }
 .logo-img { height: 44px; width: auto; display: block; }
 
-.nav-links { display: flex; gap: 32px; }
 .nav-links a {
   position: relative; color: var(--text-2); font-size: 13px;
   transition: color .2s ease;

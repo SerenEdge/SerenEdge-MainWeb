@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SerenEdge — For each node.",
+    title: "SerenEdge | For each node.",
     description: "Give us any IT problem. We will solve it.",
     images: ["/OG-page.png"],
   },
