@@ -28,15 +28,15 @@ function makeStars(count: number, w: number, skyH: number): TwinkleStar[] {
 }
 
 function spawnStreak(w: number, skyH: number, isComet: boolean): Streak {
-  const dir   = Math.random() < 0.5 ? 1 : -1;
-  const angle = (28 + Math.random() * 28) * (Math.PI / 180); // 28–56° below horizontal
-  const speed = isComet ? 4 + Math.random() * 3.5 : 10 + Math.random() * 8;
+  // Always left→right. Start from left 35% of sky, upper 50% of sky height.
+  const angle = (22 + Math.random() * 24) * (Math.PI / 180); // 22–46° below horizontal
+  const speed = isComet ? 4 + Math.random() * 3 : 9 + Math.random() * 7;
 
   return {
-    x:       Math.random() * w,
-    y:       Math.random() * skyH * 0.52,
-    vx:      dir * Math.cos(angle) * speed,
-    vy:      Math.sin(angle) * speed,
+    x:       Math.random() * w * 0.35,
+    y:       Math.random() * skyH * 0.50,
+    vx:      Math.cos(angle) * speed,   // always positive → rightward
+    vy:      Math.sin(angle) * speed,   // always positive → downward
     tailLen: isComet ? 160 + Math.random() * 90 : 44 + Math.random() * 52,
     glow:    isComet ? 7 : 2.5,
     alpha:   isComet ? 0.95 : 0.82,
@@ -63,14 +63,14 @@ export function StarField() {
     let w = 0, h = 0, skyH = 0, tick = 0, rafId = 0;
     let twinkleStars: TwinkleStar[] = [];
     const streaks: Streak[] = [];
-    let nextWish  = 90;   // first wish star ~1.5 s in
-    let nextComet = 200;  // first comet ~3.3 s in
+    let nextWish  = 180;  // first wish star ~3 s in
+    let nextComet = 360;  // first comet ~6 s in
 
     function resize() {
       w    = canvas.offsetWidth;
       h    = canvas.offsetHeight;
       if (!w || !h) return;
-      skyH = h * 0.73;
+      skyH = h * 0.60; // ground is bottom 2/5 (40%), sky is top 60%
       canvas.width  = w * dpr;
       canvas.height = h * dpr;
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -127,18 +127,18 @@ export function StarField() {
         context.restore();
       }
 
-      // spawn wish stars  (every 1–3 s at 60 fps)
+      // spawn wish stars  (every 4–6 s at 60 fps, max 1 active)
       if (tick >= nextWish) {
-        if (streaks.filter(s => !s.isComet).length < 5)
+        if (streaks.filter(s => !s.isComet).length < 1)
           streaks.push(spawnStreak(w, skyH, false));
-        nextWish = tick + 60 + Math.floor(Math.random() * 120);
+        nextWish = tick + 240 + Math.floor(Math.random() * 120);
       }
 
-      // spawn comets  (every 5–12 s)
+      // spawn comets  (every 8–14 s, max 1 active)
       if (tick >= nextComet) {
-        if (streaks.filter(s => s.isComet).length < 2)
+        if (streaks.filter(s => s.isComet).length < 1)
           streaks.push(spawnStreak(w, skyH, true));
-        nextComet = tick + 300 + Math.floor(Math.random() * 420);
+        nextComet = tick + 480 + Math.floor(Math.random() * 360);
       }
 
       // draw & update streaks
