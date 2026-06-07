@@ -3,7 +3,7 @@ export function About() {
     <section className="about-section" id="about">
       <div className="section-head">
         <div>
-          <div className="section-label">06 / Who we are</div>
+          <div className="section-label">04 / Who we are</div>
           <h2 className="section-title">
             One undergrad. <em>One studio.</em>
           </h2>

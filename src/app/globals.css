@@ -4,39 +4,39 @@
 
 /* ─── Design tokens ──────────────────────────────────────────────────────── */
 :root {
-  --bg:        #07090f;
-  --bg-2:      #0a0e1a;
-  --bg-3:      #0f1424;
-  --surface:   rgba(255,255,255,0.025);
-  --surface-2: rgba(255,255,255,0.04);
-  --border:    rgba(255,255,255,0.08);
-  --border-2:  rgba(255,255,255,0.14);
-  --text:      #e7e9f0;
-  --text-2:    #a4a9bd;
-  --text-3:    #5d6478;
-  --accent:    #6366f1;
-  --accent-2:  #4f46e5;
-  --accent-glow: rgba(99,102,241,0.45);
-  --grid-line: rgba(255,255,255,0.045);
-  --shadow:    0 30px 80px -20px rgba(0,0,0,0.7);
+  --bg:        #0b0d12;
+  --bg-2:      #0e1118;
+  --bg-3:      #121826;
+  --surface:   rgba(78,94,122,0.07);
+  --surface-2: rgba(78,94,122,0.12);
+  --border:    rgba(195,210,230,0.08);
+  --border-2:  rgba(195,210,230,0.15);
+  --text:      #e4e9f2;
+  --text-2:    #7a8ba8;
+  --text-3:    #4a5870;
+  --accent:    #5b8ac5;
+  --accent-2:  #4070aa;
+  --accent-glow: rgba(91,138,197,0.40);
+  --grid-line: rgba(195,210,230,0.04);
+  --shadow:    0 30px 80px -20px rgba(0,0,0,0.75);
 }
 
 [data-theme="light"] {
-  --bg:        #f6f6f9;
+  --bg:        #f3f4f7;
   --bg-2:      #ffffff;
-  --bg-3:      #eef0f5;
-  --surface:   rgba(10,14,26,0.025);
-  --surface-2: rgba(10,14,26,0.05);
-  --border:    rgba(10,14,26,0.10);
-  --border-2:  rgba(10,14,26,0.18);
-  --text:      #0a0e1a;
-  --text-2:    #4a5070;
-  --text-3:    #8a90a8;
-  --accent:    #4f46e5;
-  --accent-2:  #3730a3;
-  --accent-glow: rgba(79,70,229,0.25);
-  --grid-line: rgba(10,14,26,0.06);
-  --shadow:    0 30px 80px -20px rgba(10,14,26,0.18);
+  --bg-3:      #e6e8ed;
+  --surface:   rgba(28,43,71,0.03);
+  --surface-2: rgba(28,43,71,0.06);
+  --border:    rgba(28,43,71,0.09);
+  --border-2:  rgba(28,43,71,0.16);
+  --text:      #1b1b1e;
+  --text-2:    #4e5e7a;
+  --text-3:    #8090a8;
+  --accent:    #2b5fa0;
+  --accent-2:  #1c4080;
+  --accent-glow: rgba(43,95,160,0.22);
+  --grid-line: rgba(28,43,71,0.05);
+  --shadow:    0 30px 80px -20px rgba(28,43,71,0.16);
 }
 
 /* ─── Base ───────────────────────────────────────────────────────────────── */
@@ -501,6 +501,31 @@ section { position: relative; padding: 120px 40px; }
 .proj.featured { min-height: 540px; }
 .proj.featured .proj-visual { height: 260px; }
 
+/* ─── Projects — counter + placeholder ──────────────────────────────────── */
+.proj-aside-col { display: flex; flex-direction: column; gap: 20px; align-items: flex-end; }
+.proj-counter { display: flex; align-items: baseline; gap: 10px; }
+.proj-counter-num {
+  font-size: clamp(52px, 5vw, 80px); font-weight: 500;
+  letter-spacing: -0.04em; line-height: 1;
+  color: var(--accent); font-feature-settings: 'tnum';
+}
+.proj-counter-lbl {
+  font-family: var(--font-mono), monospace;
+  font-size: 13px; color: var(--text-2); letter-spacing: 0.04em;
+}
+.proj-placeholder {
+  min-height: 420px; border-style: dashed !important; opacity: 0.4;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+}
+.proj-placeholder-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 14px; color: var(--text-2); letter-spacing: 0.04em;
+}
+.proj-placeholder-sub {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px; color: var(--text-3); letter-spacing: 0.08em;
+}
+
 /* ─── Tech stack ─────────────────────────────────────────────────────────── */
 .stack-section { padding: 140px 40px; }
 .stack-grid {
@@ -642,7 +667,7 @@ section { position: relative; padding: 120px 40px; }
 /* ─── Konami overlay ─────────────────────────────────────────────────────── */
 .konami-overlay {
   position: fixed; inset: 0; z-index: 9000;
-  background: radial-gradient(circle at center, rgba(99,102,241,0.4), rgba(7,9,15,0.95));
+  background: radial-gradient(circle at center, rgba(91,138,197,0.35), rgba(11,13,18,0.96));
   display: grid; place-items: center;
   opacity: 0; pointer-events: none; transition: opacity .5s;
 }
@@ -728,7 +753,7 @@ section { position: relative; padding: 120px 40px; }
 /* ─── Contact Modal ──────────────────────────────────────────────────────── */
 .cmodal-overlay {
   position: fixed; inset: 0; z-index: 400;
-  background: rgba(7, 9, 15, 0.75);
+  background: rgba(11, 13, 18, 0.78);
   backdrop-filter: blur(14px) saturate(120%);
   -webkit-backdrop-filter: blur(14px) saturate(120%);
   display: flex; align-items: center; justify-content: center;

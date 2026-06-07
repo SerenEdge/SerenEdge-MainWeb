@@ -9,7 +9,8 @@ export function useTheme() {
 
   useEffect(() => {
     const stored = localStorage.getItem("se-theme") as Theme | null;
-    const initial = stored ?? "dark";
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initial = stored ?? (prefersDark ? "dark" : "light");
     setTheme(initial);
     document.documentElement.setAttribute("data-theme", initial);
   }, []);

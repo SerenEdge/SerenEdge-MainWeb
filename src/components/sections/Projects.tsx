@@ -1,22 +1,28 @@
 import { projects } from "@/data/projects";
 
 export function Projects() {
-  const [featured, ...rest] = projects;
-  const [second, ...small] = rest;
+  const [featured] = projects;
+  const count = projects.length;
 
   return (
     <section className="projects-section" id="work">
       <div className="section-head">
         <div>
-          <div className="section-label">03 / Selected work</div>
+          <div className="section-label">03 / Active projects</div>
           <h2 className="section-title">
-            Things we <em>actually</em> shipped.
+            Currently <em>undergoing.</em>
           </h2>
         </div>
-        <p className="section-aside">
-          A small portfolio for now. Every entry is a real system in production —
-          not a case-study mockup.
-        </p>
+        <div className="proj-aside-col">
+          <p className="section-aside">
+            Projects in active development by the SerenEdge team.
+            More arriving soon.
+          </p>
+          <div className="proj-counter reveal" data-delay="2">
+            <span className="proj-counter-num">0{count}</span>
+            <span className="proj-counter-lbl">ongoing</span>
+          </div>
+        </div>
       </div>
 
       <div className="proj-grid">
@@ -67,62 +73,11 @@ export function Projects() {
           </div>
         </article>
 
-        {/* Inventory Sync */}
-        <article className="proj reveal" data-delay="1">
-          <div>
-            <div className="proj-meta">
-              <span style={{ fontFamily: "var(--font-mono)" }}>
-                {second.num} / {second.category}
-              </span>
-              <span className="badge">{second.badge}</span>
-            </div>
-            <h3>
-              {second.title} <em>{second.titleAccent}</em>
-            </h3>
-            <p>{second.body}</p>
-            <div className="proj-tags">
-              {second.tags.map((t) => (
-                <span key={t} className="proj-tag">{t}</span>
-              ))}
-            </div>
-          </div>
-          <div className="proj-visual">
-            <svg viewBox="0 0 400 200" width="100%" height="100%" fill="none" stroke="currentColor" strokeWidth="1.3" style={{ color: "var(--accent)" }}>
-              <rect width="400" height="200" fill="var(--bg-2)" />
-              <rect x="30" y="60" width="60" height="80" rx="4" opacity="0.5" />
-              <rect x="170" y="80" width="60" height="40" rx="4" />
-              <rect x="310" y="40" width="60" height="120" rx="4" opacity="0.7" />
-              <path d="M90 100 L170 100 M230 100 L310 100" strokeDasharray="4 4" />
-              <text x="60" y="170" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="10" fill="currentColor">POS</text>
-              <text x="200" y="170" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="10" fill="currentColor">ETL</text>
-              <text x="340" y="180" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="10" fill="currentColor">DW</text>
-            </svg>
-          </div>
-        </article>
-      </div>
-
-      <div className="proj-row-2">
-        {small.map((proj, i) => (
-          <article key={proj.id} className="proj reveal" data-delay={i > 0 ? "1" : undefined}>
-            <div>
-              <div className="proj-meta">
-                <span style={{ fontFamily: "var(--font-mono)" }}>
-                  {proj.num} / {proj.category}
-                </span>
-                <span className="badge">{proj.badge}</span>
-              </div>
-              <h3>
-                {proj.title} <em>{proj.titleAccent}</em>
-              </h3>
-              <p>{proj.body}</p>
-              <div className="proj-tags">
-                {proj.tags.map((t) => (
-                  <span key={t} className="proj-tag">{t}</span>
-                ))}
-              </div>
-            </div>
-          </article>
-        ))}
+        {/* Placeholder slot for next project */}
+        <div className="proj proj-placeholder reveal" data-delay="1">
+          <span className="proj-placeholder-label">Next project</span>
+          <span className="proj-placeholder-sub">coming soon</span>
+        </div>
       </div>
     </section>
   );
