@@ -26,6 +26,7 @@ export function Navbar() {
   }, []);
 
   function handleLogoClick() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     logoClicksRef.current += 1;
     clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => { logoClicksRef.current = 0; }, 1500);
