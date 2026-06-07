@@ -1,19 +1,39 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { services } from "@/data/services";
 
 export function Services() {
-  const wrapRef  = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const barRef   = useRef<HTMLElement | null>(null);
-  const pctRef   = useRef<HTMLSpanElement>(null);
+  const wrapRef    = useRef<HTMLDivElement>(null);
+  const trackRef   = useRef<HTMLDivElement>(null);
+  const barRef     = useRef<HTMLElement | null>(null);
+  const pctRef     = useRef<HTMLSpanElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
-    const wrap  = wrapRef.current;
     const track = trackRef.current;
-    if (!wrap || !track) return;
+    if (!track) return;
+
+    /* ── Mobile: native snap-scroll with dot indicator ─────────────────── */
+    if (window.innerWidth <= 768) {
+      const handleScroll = () => {
+        const cards = Array.from(track.children) as HTMLElement[];
+        const center = track.scrollLeft + track.clientWidth / 2;
+        let closest = 0, minDist = Infinity;
+        cards.forEach((card, i) => {
+          const dist = Math.abs(card.offsetLeft + card.offsetWidth / 2 - center);
+          if (dist < minDist) { minDist = dist; closest = i; }
+        });
+        setActiveSlide(closest);
+      };
+      track.addEventListener("scroll", handleScroll, { passive: true });
+      return () => track.removeEventListener("scroll", handleScroll);
+    }
+
+    /* ── Desktop: GSAP horizontal scroll pin ───────────────────────────── */
+    const wrap = wrapRef.current;
+    if (!wrap) return;
 
     const getDistance = () =>
       Math.max(0, track.scrollWidth - window.innerWidth + 40);
@@ -41,6 +61,14 @@ export function Services() {
     ScrollTrigger.refresh();
     return () => { tween.kill(); };
   }, []);
+
+  function scrollToSlide(i: number) {
+    const track = trackRef.current;
+    if (!track) return;
+    const cards = Array.from(track.children) as HTMLElement[];
+    if (!cards[i]) return;
+    track.scrollTo({ left: cards[i].offsetLeft - 20, behavior: "smooth" });
+  }
 
   return (
     <section className="services-section" id="services">
@@ -101,6 +129,7 @@ export function Services() {
         </div>
       </div>
 
+      {/* Desktop progress bar */}
       <div className="services-progress">
         <span>Drag · scroll · or press →</span>
         <div className="bar">
@@ -109,6 +138,18 @@ export function Services() {
         <span>
           <span ref={pctRef}>00</span>%
         </span>
+      </div>
+
+      {/* Mobile dot indicator */}
+      <div className="svc-dots" aria-hidden="true">
+        {services.map((_, i) => (
+          <button
+            key={i}
+            className={`svc-dot${i === activeSlide ? " active" : ""}`}
+            onClick={() => scrollToSlide(i)}
+            aria-label={`Go to service ${i + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

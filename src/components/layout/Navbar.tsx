@@ -123,6 +123,16 @@ export function Navbar() {
             </a>
           ))}
         </nav>
+
+        <div className="nav-overlay-cta">
+          <button
+            className="btn btn-primary"
+            onClick={() => { setMenuOpen(false); openContactModal(); }}
+          >
+            <span className="dot" />Let&apos;s talk
+          </button>
+        </div>
+
         <div className="nav-overlay-foot">
           <span>dahamdissanayake05@gmail.com</span>
           <span>Sri Lanka · GMT+5:30</span>
