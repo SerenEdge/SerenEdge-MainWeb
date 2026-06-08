@@ -468,7 +468,7 @@ section { position: relative; padding: 120px 40px; }
 .services-section { padding: 120px 0 0; }
 .services-section .section-head { padding: 0 40px; margin-bottom: 28px; }
 .services-track-wrap { height: 100vh; overflow: hidden; position: relative; }
-.services-pin { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+.services-pin { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: 36px; }
 .services-track { display: flex; gap: 32px; padding: 0 40px; will-change: transform; }
 
 .svc-card {
