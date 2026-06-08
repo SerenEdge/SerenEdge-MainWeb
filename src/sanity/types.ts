@@ -15,4 +15,5 @@ export interface SanityPost {
     alt?: string
   }
   body?: PortableTextBlock[]
+  bodyPreview?: Array<{ text: string[] }>
 }

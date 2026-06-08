@@ -40,3 +40,20 @@ export const POST_QUERY = `*[_type == "post" && slug.current == $slug][0] {
 }`
 
 export const POST_SLUGS_QUERY = `*[_type == "post"]{ "slug": slug.current }`
+
+export const LATEST_POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) [0...3] {
+  _id,
+  title,
+  "slug": slug.current,
+  publishedAt,
+  excerpt,
+  "category": coalesce(category, categories[0]->title),
+  readTime,
+  "coverImage": coalesce(
+    coverImage { asset->{ url, metadata { dimensions, lqip } }, alt },
+    mainImage  { asset->{ url, metadata { dimensions, lqip } }, alt }
+  ),
+  "bodyPreview": body[_type == "block" && style == "normal"][0...2] {
+    "text": children[].text
+  }
+}`
