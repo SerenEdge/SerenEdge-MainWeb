@@ -55,7 +55,7 @@ export function Navbar() {
     timerRef.current = setTimeout(() => { logoClicksRef.current = 0; }, 1500);
     if (logoClicksRef.current >= 5) {
       logoClicksRef.current = 0;
-      showToast("👀 Found something? Send a mail — subject only: dgb#rwf");
+      showToast("Found something? Send a mail — subject only: dgb#rwf");
     }
   }
 
