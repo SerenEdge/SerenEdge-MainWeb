@@ -1200,8 +1200,25 @@ section { position: relative; padding: 90px 40px; }
   .cmodal { padding: 28px 20px 32px; border-radius: 20px 20px 16px 16px; max-height: 92dvh; overflow-y: auto; }
   .cf-row { grid-template-columns: 1fr; }
   .cmodal-head h2 { font-size: clamp(20px, 6vw, 28px); }
-  .blp-grid { grid-template-columns: 1fr; }
+  /* Latest posts — horizontal snap slider on mobile */
+  .blog-latest { padding: 72px 0; }
+  .blog-latest .section-head { padding: 0 20px; margin-bottom: 40px; }
   .blog-latest-head-right { align-items: flex-start; }
+  .blp-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px;
+    padding: 0 20px 6px;
+    scroll-padding-left: 20px;
+  }
+  .blp-grid::-webkit-scrollbar { display: none; }
+  .blp-card {
+    flex: 0 0 calc(100vw - 60px);
+    scroll-snap-align: start;
+  }
 }
 
 /* ─── Small phones (≤ 480px) ─────────────────────────────────────────────── */
