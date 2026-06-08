@@ -126,18 +126,18 @@ export function Services() {
               </article>
             ))}
           </div>
-        </div>
-      </div>
 
-      {/* Desktop progress bar */}
-      <div className="services-progress">
-        <span>Drag · scroll · or press →</span>
-        <div className="bar">
-          <i className="bar-fill" ref={(el) => { barRef.current = el; }} />
+          {/* Desktop progress bar — inside pin so it sits flush below the cards */}
+          <div className="services-progress">
+            <span>Drag · scroll · or press →</span>
+            <div className="bar">
+              <i className="bar-fill" ref={(el) => { barRef.current = el; }} />
+            </div>
+            <span>
+              <span ref={pctRef}>00</span>%
+            </span>
+          </div>
         </div>
-        <span>
-          <span ref={pctRef}>00</span>%
-        </span>
       </div>
 
       {/* Mobile dot indicator */}

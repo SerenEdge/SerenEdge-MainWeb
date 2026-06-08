@@ -466,9 +466,9 @@ section { position: relative; padding: 120px 40px; }
 
 /* ─── Services (horizontal scroll) ──────────────────────────────────────── */
 .services-section { padding: 120px 0 0; }
-.services-section .section-head { padding: 0 40px; margin-bottom: 60px; }
+.services-section .section-head { padding: 0 40px; margin-bottom: 28px; }
 .services-track-wrap { height: 100vh; overflow: hidden; position: relative; }
-.services-pin { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; }
+.services-pin { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
 .services-track { display: flex; gap: 32px; padding: 0 40px; will-change: transform; }
 
 .svc-card {
@@ -504,7 +504,7 @@ section { position: relative; padding: 120px 40px; }
 .svc-card:hover .svc-arr { transform: translateX(6px); }
 
 .services-progress {
-  padding: 20px 40px 0;
+  padding: 0 40px;
   display: flex; align-items: center; gap: 16px;
   font-family: var(--font-mono), monospace; font-size: 12px; color: var(--text-3);
 }
