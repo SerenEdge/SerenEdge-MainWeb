@@ -20,19 +20,26 @@ export function KonamiModal() {
           You found <em>the cheat code.</em>
         </h3>
         <p>
-          Truth is, there isn&apos;t one. I just outwork the problem. Most of this site
-          was built between 1am and 5am, with a SoterCare deadline running in another
-          window.
+          Truth is, there isn&apos;t one. I just outwork the problem. Most of
+          this site was built between 1am and 5am, with a SoterCare deadline
+          running in another window.
         </p>
         <p style={{ fontSize: 15, color: "var(--text)", marginBottom: 6 }}>
           Also —{" "}
-          <em style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", color: "var(--accent)", fontWeight: 600 }}>
-            Sanu
+          <em
+            style={{
+              fontFamily: "var(--font-accent)",
+              fontStyle: "italic",
+              color: "var(--accent)",
+              fontWeight: 600,
+            }}
+          >
+            Milo
           </em>
           , if you ever find this: thank you. You&apos;re the real cheat code.
         </p>
         <p style={{ fontSize: 14, color: "var(--text-2)", marginBottom: 24 }}>
-          — Milo
+          — Founder's msg
         </p>
         <div className="konami-close">[ click anywhere to close ]</div>
       </div>
