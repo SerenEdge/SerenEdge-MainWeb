@@ -1,0 +1,377 @@
+{
+  "D:\\Github\\SerenEdge-MainWeb\\.claude\\settings.local.json": {
+    "mtime": 1778774392.968027,
+    "ast_hash": "367313206618b0b4a603e399c8916636",
+    "semantic_hash": "367313206618b0b4a603e399c8916636"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\.sanity\\runtime\\app.js": {
+    "mtime": 1780870469.1946428,
+    "ast_hash": "e027b686d13901e661593e97fba4b137",
+    "semantic_hash": "e027b686d13901e661593e97fba4b137"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\next.config.ts": {
+    "mtime": 1780868628.3308914,
+    "ast_hash": "c383cf0cd76246a9a015004045ba5c5f",
+    "semantic_hash": "c383cf0cd76246a9a015004045ba5c5f"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\package.json": {
+    "mtime": 1780871100.0420554,
+    "ast_hash": "3904c78e34b76ad10c832a5cf6fe969d",
+    "semantic_hash": "3904c78e34b76ad10c832a5cf6fe969d"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\postcss.config.mjs": {
+    "mtime": 1780856414.3508213,
+    "ast_hash": "239f3ebf717465dc636818a1a619398d",
+    "semantic_hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\sanity.cli.ts": {
+    "mtime": 1780869034.4867532,
+    "ast_hash": "a45cea67df40efde1d7540c82138ffdd",
+    "semantic_hash": "a45cea67df40efde1d7540c82138ffdd"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\sanity.config.ts": {
+    "mtime": 1780869028.1620321,
+    "ast_hash": "f1692d9e261ded75cc5fb7c1d243b566",
+    "semantic_hash": "f1692d9e261ded75cc5fb7c1d243b566"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\app\\(site)\\blog\\[slug]\\page.tsx": {
+    "mtime": 1780876039.5720143,
+    "ast_hash": "2c044559da979e299868716e0fde781d",
+    "semantic_hash": "2c044559da979e299868716e0fde781d"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\app\\(site)\\blog\\page.tsx": {
+    "mtime": 1780876038.674233,
+    "ast_hash": "c9571c006bc9875cbd846f46d10f4b74",
+    "semantic_hash": "c9571c006bc9875cbd846f46d10f4b74"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\app\\(site)\\layout.tsx": {
+    "mtime": 1780869495.3788311,
+    "ast_hash": "c87faf79a381fe77f07e2895d7609477",
+    "semantic_hash": "c87faf79a381fe77f07e2895d7609477"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\app\\(site)\\page.tsx": {
+    "mtime": 1780919255.1992836,
+    "ast_hash": "0e9da3210d5ad4d1140effb0c6659c82",
+    "semantic_hash": "0e9da3210d5ad4d1140effb0c6659c82"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\app\\api\\contact\\route.ts": {
+    "mtime": 1780862749.8103304,
+    "ast_hash": "029a8899bf73d14c40e15f15e4c5c6b4",
+    "semantic_hash": "029a8899bf73d14c40e15f15e4c5c6b4"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\app\\error.tsx": {
+    "mtime": 1780862620.8229775,
+    "ast_hash": "d37e83b77cdf5e6692416bcbccca27b4",
+    "semantic_hash": "d37e83b77cdf5e6692416bcbccca27b4"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\app\\layout.tsx": {
+    "mtime": 1780876045.820463,
+    "ast_hash": "ac127b6752aac4bae7f5d6e6e831a303",
+    "semantic_hash": "ac127b6752aac4bae7f5d6e6e831a303"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\app\\loading.tsx": {
+    "mtime": 1780862621.9141378,
+    "ast_hash": "5807cd430f02acd956a47f342fcc4f60",
+    "semantic_hash": "5807cd430f02acd956a47f342fcc4f60"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\app\\not-found.tsx": {
+    "mtime": 1780862758.1684518,
+    "ast_hash": "f81a503d07692013a343561fdd806f74",
+    "semantic_hash": "f81a503d07692013a343561fdd806f74"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\app\\sitemap.ts": {
+    "mtime": 1780862615.862134,
+    "ast_hash": "f2fdac08bb304c2b0f7c22de8d0e3b69",
+    "semantic_hash": "f2fdac08bb304c2b0f7c22de8d0e3b69"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\app\\studio\\[[...tool]]\\page.tsx": {
+    "mtime": 1780904416.2447186,
+    "ast_hash": "566cd065cc6d57f17fe0bceb7f212063",
+    "semantic_hash": "566cd065cc6d57f17fe0bceb7f212063"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\blog\\PortableTextComponents.tsx": {
+    "mtime": 1780871681.0472436,
+    "ast_hash": "75e4a2ab9f8f9f085c97ccb07937f35f",
+    "semantic_hash": "75e4a2ab9f8f9f085c97ccb07937f35f"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\layout\\Footer.tsx": {
+    "mtime": 1780863022.5130587,
+    "ast_hash": "9d430cb525c3fbc5fbf51b1c10416af1",
+    "semantic_hash": "9d430cb525c3fbc5fbf51b1c10416af1"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\layout\\Navbar.tsx": {
+    "mtime": 1780920483.5559175,
+    "ast_hash": "d5dac66e7f34c16a3521e47ad4194a84",
+    "semantic_hash": "d5dac66e7f34c16a3521e47ad4194a84"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\layout\\SmoothScrollProvider.tsx": {
+    "mtime": 1778771778.904368,
+    "ast_hash": "0caf1c63bc1dfd24063a391ad58de1c2",
+    "semantic_hash": "0caf1c63bc1dfd24063a391ad58de1c2"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\sections\\About.tsx": {
+    "mtime": 1780864811.4088218,
+    "ast_hash": "db0a7a3d454892658d16694fe730d151",
+    "semantic_hash": "db0a7a3d454892658d16694fe730d151"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\sections\\Contact.tsx": {
+    "mtime": 1780862694.7632275,
+    "ast_hash": "01f8beaa1e18ec59b3023c1a2cbe8d44",
+    "semantic_hash": "01f8beaa1e18ec59b3023c1a2cbe8d44"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\sections\\Hero.tsx": {
+    "mtime": 1780865198.4282234,
+    "ast_hash": "ea237552fe772881210fbc26c28d5f92",
+    "semantic_hash": "ea237552fe772881210fbc26c28d5f92"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\sections\\LatestPosts.tsx": {
+    "mtime": 1780919247.721174,
+    "ast_hash": "b4dc3e41ac97f6f834c469a38d28f044",
+    "semantic_hash": "b4dc3e41ac97f6f834c469a38d28f044"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\sections\\Marquee.tsx": {
+    "mtime": 1778772364.6938734,
+    "ast_hash": "1ac465e2de9be7c6fc65a29c7db71dd6",
+    "semantic_hash": "1ac465e2de9be7c6fc65a29c7db71dd6"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\sections\\Process.tsx": {
+    "mtime": 1780860200.1010532,
+    "ast_hash": "c71117047ee721244ebed8cf47b26498",
+    "semantic_hash": "c71117047ee721244ebed8cf47b26498"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\sections\\Projects.tsx": {
+    "mtime": 1780860191.0344856,
+    "ast_hash": "01420be1f77afe4bbb23eb09b82355d5",
+    "semantic_hash": "01420be1f77afe4bbb23eb09b82355d5"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\sections\\Services.tsx": {
+    "mtime": 1780916844.5346985,
+    "ast_hash": "679bd37091a754939edf885627bea9d8",
+    "semantic_hash": "679bd37091a754939edf885627bea9d8"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\ui\\ContactModal.tsx": {
+    "mtime": 1778781495.2550545,
+    "ast_hash": "69245c57d6ab02ad5be22a2e21c18d5e",
+    "semantic_hash": "69245c57d6ab02ad5be22a2e21c18d5e"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\ui\\Cursor.tsx": {
+    "mtime": 1778772510.15441,
+    "ast_hash": "99d523d205267377259507925c493c60",
+    "semantic_hash": "99d523d205267377259507925c493c60"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\ui\\FaviconSync.tsx": {
+    "mtime": 1780863675.9039443,
+    "ast_hash": "88eb8983523e6b892efc0279716f7fda",
+    "semantic_hash": "88eb8983523e6b892efc0279716f7fda"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\ui\\KonamiModal.tsx": {
+    "mtime": 1778772532.5083208,
+    "ast_hash": "f208da4d197dcafe45b1631327422f30",
+    "semantic_hash": "f208da4d197dcafe45b1631327422f30"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\ui\\RevealObserver.tsx": {
+    "mtime": 1778772572.359719,
+    "ast_hash": "7b90ca6dd45cd43a203fed226fe766c0",
+    "semantic_hash": "7b90ca6dd45cd43a203fed226fe766c0"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\ui\\StarField.tsx": {
+    "mtime": 1780877048.4611924,
+    "ast_hash": "b465fa07ebdf8a8226421831ad08fb51",
+    "semantic_hash": "b465fa07ebdf8a8226421831ad08fb51"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\ui\\TimeGreeting.tsx": {
+    "mtime": 1778772514.4247663,
+    "ast_hash": "e4d7a0a7a43f01350d92784f8626239e",
+    "semantic_hash": "e4d7a0a7a43f01350d92784f8626239e"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\components\\ui\\Toast.tsx": {
+    "mtime": 1778774354.9937809,
+    "ast_hash": "bbd367c352206051a194e5f294b10931",
+    "semantic_hash": "bbd367c352206051a194e5f294b10931"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\data\\process.ts": {
+    "mtime": 1778772297.2226007,
+    "ast_hash": "2f58bc03066df9028d3814f51b0ede6d",
+    "semantic_hash": "2f58bc03066df9028d3814f51b0ede6d"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\data\\projects.ts": {
+    "mtime": 1780859144.1689346,
+    "ast_hash": "0c6849033a3c15a7e9ac3c86049cd6eb",
+    "semantic_hash": "0c6849033a3c15a7e9ac3c86049cd6eb"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\data\\services.ts": {
+    "mtime": 1778772275.1735258,
+    "ast_hash": "14cb47af0c8b156416f56737d41dde3f",
+    "semantic_hash": "14cb47af0c8b156416f56737d41dde3f"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\data\\techStack.ts": {
+    "mtime": 1778772332.6214483,
+    "ast_hash": "79de0de7642c5f935cbc36cb31fa0c26",
+    "semantic_hash": "79de0de7642c5f935cbc36cb31fa0c26"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\hooks\\useKonami.ts": {
+    "mtime": 1778771778.907367,
+    "ast_hash": "67fee507a1067299f2fbdc2625256d5f",
+    "semantic_hash": "67fee507a1067299f2fbdc2625256d5f"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\hooks\\useScrollProgress.ts": {
+    "mtime": 1778771778.907367,
+    "ast_hash": "76e0455e0b9894e09201381789ded0f9",
+    "semantic_hash": "76e0455e0b9894e09201381789ded0f9"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\hooks\\useTheme.ts": {
+    "mtime": 1780842514.7316542,
+    "ast_hash": "9bc6351064daaa21f1c9d182e7ed3467",
+    "semantic_hash": "9bc6351064daaa21f1c9d182e7ed3467"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\lib\\animations.ts": {
+    "mtime": 1778771778.9083648,
+    "ast_hash": "51a036b8ab4f67906ec61a655a9be4fa",
+    "semantic_hash": "51a036b8ab4f67906ec61a655a9be4fa"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\lib\\contact.ts": {
+    "mtime": 1778781450.348074,
+    "ast_hash": "b7e787398ec8370a59d34e094053cf69",
+    "semantic_hash": "b7e787398ec8370a59d34e094053cf69"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\lib\\gsap.ts": {
+    "mtime": 1778771778.9083648,
+    "ast_hash": "5200ed720b02f5328b45f686fb24f6a4",
+    "semantic_hash": "5200ed720b02f5328b45f686fb24f6a4"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\lib\\toast.ts": {
+    "mtime": 1778772519.106022,
+    "ast_hash": "2037430bc89d30d71047de18a91f50b1",
+    "semantic_hash": "2037430bc89d30d71047de18a91f50b1"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\env.ts": {
+    "mtime": 1780870735.909403,
+    "ast_hash": "7b58a92092e03194b67bf44822df4cc4",
+    "semantic_hash": "7b58a92092e03194b67bf44822df4cc4"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\lib\\client.ts": {
+    "mtime": 1780869049.939753,
+    "ast_hash": "48467fd4f7bd68153e3d2a14884da83c",
+    "semantic_hash": "48467fd4f7bd68153e3d2a14884da83c"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\lib\\image.ts": {
+    "mtime": 1780869051.7061274,
+    "ast_hash": "bc7572517a7463498c99cce8456a5964",
+    "semantic_hash": "bc7572517a7463498c99cce8456a5964"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\lib\\live.ts": {
+    "mtime": 1780869051.706654,
+    "ast_hash": "23a060414de984b25bad60297d09b8cb",
+    "semantic_hash": "23a060414de984b25bad60297d09b8cb"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\lib\\queries.ts": {
+    "mtime": 1780919230.1342487,
+    "ast_hash": "14bf10bfc8fe74c5ba8df2d045641f7e",
+    "semantic_hash": "14bf10bfc8fe74c5ba8df2d045641f7e"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\schemaTypes\\authorType.ts": {
+    "mtime": 1780869051.708228,
+    "ast_hash": "9158a01a7a3cc5f469bad8b7e846f5d2",
+    "semantic_hash": "9158a01a7a3cc5f469bad8b7e846f5d2"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\schemaTypes\\blockContentType.ts": {
+    "mtime": 1780869051.708228,
+    "ast_hash": "5385834cd96392acc75b43e479e32818",
+    "semantic_hash": "5385834cd96392acc75b43e479e32818"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\schemaTypes\\categoryType.ts": {
+    "mtime": 1780869051.7094948,
+    "ast_hash": "6273b82563c9b46c3969c6ecb094abcf",
+    "semantic_hash": "6273b82563c9b46c3969c6ecb094abcf"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\schemaTypes\\index.ts": {
+    "mtime": 1780869051.710512,
+    "ast_hash": "e39639c8421bf06679464d8c40d9a38b",
+    "semantic_hash": "e39639c8421bf06679464d8c40d9a38b"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\schemaTypes\\postType.ts": {
+    "mtime": 1780869051.710512,
+    "ast_hash": "8bddc06c148a6e95b5863c1e57cf7618",
+    "semantic_hash": "8bddc06c148a6e95b5863c1e57cf7618"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\schemas\\index.ts": {
+    "mtime": 1780868544.335323,
+    "ast_hash": "5c1500f148cec4153bbb43adc5448ecd",
+    "semantic_hash": "5c1500f148cec4153bbb43adc5448ecd"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\schemas\\post.ts": {
+    "mtime": 1780868543.5883033,
+    "ast_hash": "db11334043feb02c0c19c8d43faf9976",
+    "semantic_hash": "db11334043feb02c0c19c8d43faf9976"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\structure.ts": {
+    "mtime": 1780869051.7115095,
+    "ast_hash": "becf47858c8f085ada4bb826870f582f",
+    "semantic_hash": "becf47858c8f085ada4bb826870f582f"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\sanity\\types.ts": {
+    "mtime": 1780919233.944933,
+    "ast_hash": "4025c4335667083af150528a1fe76e13",
+    "semantic_hash": "4025c4335667083af150528a1fe76e13"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\src\\types\\index.ts": {
+    "mtime": 1778772250.6345718,
+    "ast_hash": "6eda8f71c111142a6b7f06968629e56e",
+    "semantic_hash": "6eda8f71c111142a6b7f06968629e56e"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\tailwind.config.ts": {
+    "mtime": 1778772135.5577338,
+    "ast_hash": "6b58ae643563e5bb325437118cac25ed",
+    "semantic_hash": "6b58ae643563e5bb325437118cac25ed"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\tsconfig.json": {
+    "mtime": 1780856426.896875,
+    "ast_hash": "93962c3d164f01fbbcf7c14a1084050d",
+    "semantic_hash": "93962c3d164f01fbbcf7c14a1084050d"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\.sanity\\runtime\\index.html": {
+    "mtime": 1780870469.1936488,
+    "ast_hash": "79dbb71b28a474169f9ea0b2f5272c41",
+    "semantic_hash": "79dbb71b28a474169f9ea0b2f5272c41"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\docs\\sanity-setup-guide.md": {
+    "mtime": 1780868722.5616841,
+    "ast_hash": "857eb15f4baa2d3776992d90b283faec",
+    "semantic_hash": "857eb15f4baa2d3776992d90b283faec"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\docs\\superpowers\\specs\\2026-06-08-hero-redesign-design.md": {
+    "mtime": 1780864128.6057007,
+    "ast_hash": "9c87be54b3ec1974b2a977d33c9298b9",
+    "semantic_hash": "9c87be54b3ec1974b2a977d33c9298b9"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\public\\robots.txt": {
+    "mtime": 1780862611.1151595,
+    "ast_hash": "e9e7d7478036062a8815a8c93d63b557",
+    "semantic_hash": "e9e7d7478036062a8815a8c93d63b557"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\public\\Base Logo - Dark.png": {
+    "mtime": 1780855077.85284,
+    "ast_hash": "cf429c436754250199ffa0a081095e94",
+    "semantic_hash": "cf429c436754250199ffa0a081095e94"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\public\\Base Logo - Light.png": {
+    "mtime": 1780855127.812185,
+    "ast_hash": "78ce5076448b2dc6e087aa1b7555f305",
+    "semantic_hash": "78ce5076448b2dc6e087aa1b7555f305"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\public\\Founder-daham.webp": {
+    "mtime": 1780862327.8672564,
+    "ast_hash": "16ba5b8c8b26a6c3782fa60648073d02",
+    "semantic_hash": "16ba5b8c8b26a6c3782fa60648073d02"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\public\\OG-page.png": {
+    "mtime": 1780862219.0023365,
+    "ast_hash": "902d4bc165597734210a19c8900e1d60",
+    "semantic_hash": "902d4bc165597734210a19c8900e1d60"
+  },
+  "D:\\Github\\SerenEdge-MainWeb\\public\\SoterCare banner.png": {
+    "mtime": 1775116367.7476912,
+    "ast_hash": "aee5ea10295329a4a1257f407502c983",
+    "semantic_hash": "aee5ea10295329a4a1257f407502c983"
+  }
+}
