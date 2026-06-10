@@ -27,12 +27,12 @@ export function KonamiModal() {
         <p style={{ fontSize: 15, color: "var(--text)", marginBottom: 6 }}>
           Also —{" "}
           <em style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", color: "var(--accent)", fontWeight: 600 }}>
-            Sanuli
+            Sanu
           </em>
           , if you ever find this: thank you. You&apos;re the real cheat code.
         </p>
         <p style={{ fontSize: 14, color: "var(--text-2)", marginBottom: 24 }}>
-          — Daham
+          — Milo
         </p>
         <div className="konami-close">[ click anywhere to close ]</div>
       </div>
