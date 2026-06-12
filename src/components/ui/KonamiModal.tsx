@@ -34,7 +34,7 @@ export function KonamiModal() {
               fontWeight: 600,
             }}
           >
-            Milo
+            Sanu
           </em>
           , if you ever find this: thank you. You&apos;re the real cheat code.
         </p>
