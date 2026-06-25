@@ -5,12 +5,22 @@ import { client } from '@/sanity/lib/client'
 import { POSTS_QUERY } from '@/sanity/lib/queries'
 import type { SanityPost } from '@/sanity/types'
 import { urlFor } from '@/sanity/lib/image'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { blogSchema, breadcrumbSchema } from '@/lib/structured-data'
 
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Blog | SerenEdge',
-  description: 'Engineering notes, product updates, and deep dives from the SerenEdge team.',
+  title: 'Blog — Engineering Notes & Deep Dives',
+  description:
+    'Engineering notes, product updates, and deep dives from SerenEdge — IT, IoT, automation and machine learning, by Daham Dissanayake and team.',
+  alternates: { canonical: '/blog' },
+  openGraph: {
+    title: 'SerenEdge Blog — Engineering Notes & Deep Dives',
+    description: 'Engineering notes, product updates, and deep dives from the SerenEdge team.',
+    url: 'https://serenedge.com/blog',
+    type: 'website',
+  },
 }
 
 function formatDate(dateStr: string) {
@@ -69,6 +79,15 @@ export default async function BlogPage() {
 
   return (
     <main className="blog-page">
+      <JsonLd
+        data={[
+          blogSchema(),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Blog', path: '/blog' },
+          ]),
+        ]}
+      />
       {/* ── Page header ─────────────────────────────────────── */}
       <section className="blog-hero">
         <div className="blog-hero-inner">

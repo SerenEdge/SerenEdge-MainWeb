@@ -38,8 +38,14 @@ export function Hero() {
       <StarField />
 
       <div className="hero-content">
-        <span className="hero-brand">SerenEdge</span>
-        <h1 className="hero-slogan">for each node.</h1>
+        <h1 className="hero-title">
+          <span className="hero-brand">SerenEdge</span>
+          <span className="hero-slogan">for each node.</span>
+          <span className="sr-only">
+            {" "}— IT, IoT &amp; automation studio in Sri Lanka, founded by Daham
+            Dissanayake.
+          </span>
+        </h1>
         <p className="hero-desc">
           A deeply technical IT studio.<br />
           Web&nbsp;·&nbsp;IoT&nbsp;·&nbsp;Automation&nbsp;·&nbsp;ML.

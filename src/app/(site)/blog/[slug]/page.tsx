@@ -8,6 +8,8 @@ import { POST_QUERY, POST_SLUGS_QUERY } from '@/sanity/lib/queries'
 import type { SanityPost } from '@/sanity/types'
 import { urlFor } from '@/sanity/lib/image'
 import { portableTextComponents } from '@/components/blog/PortableTextComponents'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { blogPostingSchema, breadcrumbSchema } from '@/lib/structured-data'
 
 export const revalidate = 60
 
@@ -25,13 +27,34 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const post = await client.fetch<SanityPost | null>(POST_QUERY, { slug })
-  if (!post) return { title: 'Post not found | SerenEdge' }
+  if (!post) return { title: 'Post not found' }
+
+  const ogImage = post.coverImage?.asset
+    ? urlFor(post.coverImage).width(1200).height(630).url()
+    : '/OG-page.png'
+
   return {
-    title: `${post.title} | SerenEdge Blog`,
+    title: post.title,
     description: post.excerpt,
-    openGraph: post.coverImage?.asset
-      ? { images: [{ url: urlFor(post.coverImage).width(1200).height(630).url() }] }
-      : undefined,
+    keywords: post.tags,
+    authors: post.author ? [{ name: post.author }] : undefined,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: `https://serenedge.com/blog/${slug}`,
+      type: 'article',
+      publishedTime: post.publishedAt,
+      authors: post.author ? [post.author] : ['Daham Dissanayake'],
+      tags: post.tags,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [ogImage],
+    },
   }
 }
 
@@ -53,6 +76,24 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <main className="blog-post-page">
+      <JsonLd
+        data={[
+          blogPostingSchema({
+            title: post.title,
+            slug: post.slug,
+            excerpt: post.excerpt,
+            publishedAt: post.publishedAt,
+            author: post.author,
+            coverImageUrl: imgSrc,
+            tags: post.tags,
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Blog', path: '/blog' },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]),
+        ]}
+      />
       <div className="blog-post-container">
 
         {/* Back */}

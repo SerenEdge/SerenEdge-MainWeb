@@ -5,6 +5,17 @@ export function Footer() {
     <footer className="site-footer">
       <div className="footer-copy">
         © 2026 SerenEdge · for each node.
+        <span className="footer-portfolio">
+          {" "}· Built by{" "}
+          <a
+            href="https://daham.serenedge.com"
+            target="_blank"
+            rel="noopener author"
+            title="Daham Dissanayake — founder portfolio"
+          >
+            Daham Dissanayake
+          </a>
+        </span>
       </div>
 
       <div className="footer-social">

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import { Cursor } from "@/components/ui/Cursor";
@@ -7,6 +7,13 @@ import { ContactModal } from "@/components/ui/ContactModal";
 import { Toast } from "@/components/ui/Toast";
 import { FaviconSync } from "@/components/ui/FaviconSync";
 import { Analytics } from "@vercel/analytics/next";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { SITE, SITE_KEYWORDS } from "@/lib/site";
+import {
+  organizationSchema,
+  websiteSchema,
+  founderSchema,
+} from "@/lib/structured-data";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -30,41 +37,49 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://serenedge.com"),
-  title: "SerenEdge | For each node.",
-  description:
-    "SerenEdge is a small, deeply technical IT studio based in Sri Lanka. We take on the problems other shops won't — web platforms, IoT, automation, custom systems, ML — and ship them end-to-end. For each node.",
-  keywords: [
-    "IT solutions",
-    "web development",
-    "IoT",
-    "automation",
-    "machine learning",
-    "SerenEdge",
-    "Sri Lanka",
-    "full-stack",
-    "embedded systems",
-    "software studio",
-  ],
-  authors: [{ name: "Daham Dissanayake", url: "https://daham.serenedge.com" }],
-  creator: "Daham Dissanayake",
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: "SerenEdge — IT, IoT & Automation Studio in Sri Lanka | For each node.",
+    template: "%s | SerenEdge",
+  },
+  description: SITE.description,
+  applicationName: SITE.name,
+  keywords: SITE_KEYWORDS,
+  category: "technology",
+  authors: [{ name: SITE.founder.name, url: SITE.founder.url }],
+  creator: SITE.founder.name,
+  publisher: SITE.name,
+  referrer: "origin-when-cross-origin",
+  formatDetection: { email: false, address: false, telephone: false },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
-  alternates: { canonical: "https://serenedge.com" },
+  alternates: { canonical: "/" },
+  // Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION to use HTML-tag GSC verification
+  // (DNS domain-property verification is preferred and needs nothing here).
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
   manifest: "/site.webmanifest",
+  appleWebApp: { capable: true, title: SITE.name, statusBarStyle: "black-translucent" },
   openGraph: {
-    title: "SerenEdge | For each node.",
-    description: "Give us any IT problem. We will solve it. For each node.",
-    siteName: "SerenEdge",
+    title: "SerenEdge — IT, IoT & Automation Studio | For each node.",
+    description: SITE.shortDescription,
+    siteName: SITE.name,
     type: "website",
-    url: "https://serenedge.com",
-    locale: "en_US",
+    url: SITE.url,
+    locale: SITE.locale,
     images: [
       {
-        url: "/OG-page.png",
+        url: SITE.ogImage,
         width: 1200,
         height: 630,
         alt: "SerenEdge — For each node.",
@@ -73,10 +88,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SerenEdge | For each node.",
-    description: "Give us any IT problem. We will solve it.",
-    images: ["/OG-page.png"],
+    title: "SerenEdge — IT, IoT & Automation Studio | For each node.",
+    description: SITE.shortDescription,
+    images: [SITE.ogImage],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0b0d12" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
 };
 
 /* Favicon paths — no %20 encoding, raw spaces work fine as link href values */
@@ -127,6 +149,9 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <JsonLd
+          data={[organizationSchema(), websiteSchema(), founderSchema()]}
+        />
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
