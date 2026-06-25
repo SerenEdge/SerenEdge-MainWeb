@@ -29,18 +29,18 @@ export function About() {
                   alt="Daham Dissanayake"
                   style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />
-                <span className="fp-cap">// daham — founder</span>
+                <span className="fp-cap">// daham · founder</span>
               </span>
             </a>
-            {", "}we operate across the full spectrum — our own startups, client
+            {", "}we operate across the full spectrum: our own startups, client
             projects, and anything that ships software, signals, or systems.
             A-to-Z IT solutions, handled in-house from first brief to final deployment.
           </p>
 
           <p>
             We don&apos;t specialise in one stack or one industry. We pick up problems
-            other shops won&apos;t touch — embedded firmware, ML pipelines, custom ERPs,
-            IoT fleets, web platforms — and we see them through. Same team, same
+            other shops won&apos;t touch (embedded firmware, ML pipelines, custom ERPs,
+            IoT fleets, web platforms) and we see them through. Same team, same
             accountability, start to finish.
           </p>
 
