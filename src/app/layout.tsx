@@ -39,7 +39,7 @@ const syne = Syne({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "SerenEdge — IT, IoT & Automation Studio in Sri Lanka | For each node.",
+    default: "SerenEdge | IT, IoT & Automation Studio in Sri Lanka | For each node.",
     template: "%s | SerenEdge",
   },
   description: SITE.description,
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   appleWebApp: { capable: true, title: SITE.name, statusBarStyle: "black-translucent" },
   openGraph: {
-    title: "SerenEdge — IT, IoT & Automation Studio | For each node.",
+    title: "SerenEdge | IT, IoT & Automation Studio | For each node.",
     description: SITE.shortDescription,
     siteName: SITE.name,
     type: "website",
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SerenEdge — IT, IoT & Automation Studio | For each node.",
+    title: "SerenEdge | IT, IoT & Automation Studio | For each node.",
     description: SITE.shortDescription,
     images: [SITE.ogImage],
   },

@@ -11,12 +11,12 @@ import { blogSchema, breadcrumbSchema } from '@/lib/structured-data'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Blog — Engineering Notes & Deep Dives',
+  title: 'Blog | Engineering Notes & Deep Dives',
   description:
     'Engineering notes, product updates, and deep dives from SerenEdge — IT, IoT, automation and machine learning, by Daham Dissanayake and team.',
   alternates: { canonical: '/blog' },
   openGraph: {
-    title: 'SerenEdge Blog — Engineering Notes & Deep Dives',
+    title: 'SerenEdge Blog | Engineering Notes & Deep Dives',
     description: 'Engineering notes, product updates, and deep dives from the SerenEdge team.',
     url: 'https://serenedge.com/blog',
     type: 'website',
